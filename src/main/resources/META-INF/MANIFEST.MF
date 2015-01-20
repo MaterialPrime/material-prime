@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Created-By: MaterialPrime
+Bundle-ManifestVersion: 2
+Bundle-Name: primefaces.material
+Bundle-Description: MaterialPrime
+Bundle-SymbolicName: org.primefaces.material
