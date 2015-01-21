@@ -1,23 +1,36 @@
 <?xml version="1.0"?>
 <faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-              version="2.0">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
 
-    <name>material_prime</name>
+	<name>material_prime</name>
 
-    <ordering>
-        <after>
-            <name>primefaces</name>
-        </after>
-    </ordering>
+	<ordering>
+		<after>
+			<name>primefaces</name>
+		</after>
+	</ordering>
 
-    <application>
-        <system-event-listener>
-            <system-event-listener-class>org.primefaces.material.application.PostConstructApplicationEventListener</system-event-listener-class>
-            <system-event-class>javax.faces.event.PostConstructApplicationEvent</system-event-class>
-            <source-class>javax.faces.application.Application</source-class>
-        </system-event-listener>
-    </application>
+	<application>
+		<system-event-listener>
+			<system-event-listener-class>org.primefaces.material.application.PostConstructApplicationEventListener</system-event-listener-class>
+			<system-event-class>javax.faces.event.PostConstructApplicationEvent</system-event-class>
+			<source-class>javax.faces.application.Application</source-class>
+		</system-event-listener>
+	</application>
+
+	<component>
+		<component-type>org.primefaces.material.component.Toggle</component-type>
+		<component-class>org.primefaces.material.component.toggle.Toggle</component-class>
+	</component>
+
+	<render-kit>
+		<renderer>
+			<component-family>org.primefaces.material.component</component-family>
+			<renderer-type>org.primefaces.material.component.ToggleRenderer</renderer-type>
+			<renderer-class>org.primefaces.material.component.toggle.ToggleRenderer</renderer-class>
+		</renderer>
+	</render-kit>
 
 </faces-config>
