@@ -9,6 +9,7 @@ import javax.faces.convert.ConverterException;
 
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.ComponentUtils;
+import org.primefaces.util.WidgetBuilder;
 
 public class ToggleRenderer extends CoreRenderer {
 	public static final String RENDERER_TYPE = "org.primefaces.material.component.ToggleRenderer";
@@ -43,9 +44,10 @@ public class ToggleRenderer extends CoreRenderer {
 		Toggle toggle = (Toggle) component;
 
 		encodeMarkup(context, toggle);
+		encodeScript(context, toggle);
 	}
 
-	protected void encodeMarkup(FacesContext context, Toggle toggle) throws IOException {
+	private void encodeMarkup(FacesContext context, Toggle toggle) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		
 		boolean checked = Boolean.valueOf(ComponentUtils.getValueToRender(context, toggle));
@@ -65,7 +67,21 @@ public class ToggleRenderer extends CoreRenderer {
 			writer.endElement("label");	
 		writer.endElement("div");
 	}
-
+	
+	private void encodeScript(FacesContext context, Toggle toggle) throws IOException {
+		String clientId = toggle.getClientId();
+		String widgetVar = toggle.resolveWidgetVar();
+		 
+		WidgetBuilder wb = getWidgetBuilder(context);
+		 
+		wb.initWithDomReady("Toggle", widgetVar, clientId);
+		wb.attr("widgetName", widgetVar);
+		encodeClientBehaviors(context, toggle);
+		 
+		wb.finish();
+		 
+	}
+	
 	@Override
 	public Object getConvertedValue(FacesContext context, UIComponent component, Object submittedValue) throws ConverterException {
 		return ((submittedValue instanceof Boolean) ? submittedValue : Boolean.valueOf(submittedValue.toString()));
