@@ -4,6 +4,8 @@ import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIInput;
 
+import org.primefaces.component.selectbooleancheckbox.SelectBooleanCheckbox;
+
 @ResourceDependencies({
 	@ResourceDependency(library = "primefaces", name = "jquery/jquery.js"),
 	@ResourceDependency(library = "primefaces", name = "primefaces.js"),
@@ -15,7 +17,7 @@ import javax.faces.component.UIInput;
 	@ResourceDependency(library = "material-prime", name = "libs/ripples.js"),
 	@ResourceDependency(library = "material-prime", name = "core/material-prime.js")
 })
-public class Toggle extends UIInput {
+public class Toggle extends SelectBooleanCheckbox {
 	public static final String COMPONENT_TYPE = "org.primefaces.material.component.Toggle";
 	public static final String COMPONENT_FAMILY = "org.primefaces.material.component";
 	
