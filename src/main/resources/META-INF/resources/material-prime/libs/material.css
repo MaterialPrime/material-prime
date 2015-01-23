@@ -47,8 +47,11 @@ Then, run this script to get the list.
  */
 @font-face {
   font-family: "Material-Design-Icons";
-  src: url("../fonts/Material-Design-Icons.eot?-g7cqhn");
-  src: url("../fonts/Material-Design-Icons.eot?#iefix-g7cqhn") format("embedded-opentype"), url("../fonts/Material-Design-Icons.woff?-g7cqhn") format("woff"), url("../fonts/Material-Design-Icons.ttf?-g7cqhn") format("truetype"), url("../fonts/Material-Design-Icons.svg?-g7cqhn#Material-Design-Icons") format("svg");
+  src: url("#{resource['material-prime:fonts/Material-Design-Icons.eot']}");
+  src: url("#{resource['material-prime:fonts/Material-Design-Icons.eot']}#iefix") format("embedded-opentype"), 
+  	   url("#{resource['material-prime:fonts/Material-Design-Icons.woff']}") format("woff"), 
+  	   url("#{resource['material-prime:fonts/Material-Design-Icons.ttf']}") format("truetype"), 
+  	   url("#{resource['material-prime:fonts/Material-Design-Icons.svg']}#Material-Design-Icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
