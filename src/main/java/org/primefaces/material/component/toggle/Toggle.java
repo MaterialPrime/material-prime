@@ -21,6 +21,10 @@ import org.primefaces.material.MaterialPrime;
 public class Toggle extends SelectBooleanCheckbox {
 	public static final String COMPONENT_TYPE = "org.primefaces.material.component.Toggle";
 	
+	public Toggle() {
+		setRendererType(ToggleRenderer.RENDERER_TYPE);
+	}
+	
 	@Override
 	public String getFamily() {
 		return MaterialPrime.COMPONENT_FAMILY;
