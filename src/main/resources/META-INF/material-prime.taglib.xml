@@ -5,6 +5,14 @@
 
 	<namespace>http://primefaces.org/ui/material</namespace>
 	<tag>
+		<description><![CDATA[Icon Component]]></description>
+		<tag-name>icon</tag-name>
+		<component>
+			<component-type>org.primefaces.material.component.Icon</component-type>
+			<renderer-type>org.primefaces.material.component.IconRenderer</renderer-type>
+		</component>
+	</tag>
+	<tag>
 		<description><![CDATA[Toggle Component]]></description>
 		<tag-name>toggle</tag-name>
 		<component>

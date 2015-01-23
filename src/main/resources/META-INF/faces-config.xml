@@ -24,12 +24,22 @@
 		<component-type>org.primefaces.material.component.Toggle</component-type>
 		<component-class>org.primefaces.material.component.toggle.Toggle</component-class>
 	</component>
+	
+	<component>
+		<component-type>org.primefaces.material.component.Icon</component-type>
+		<component-class>org.primefaces.material.component.icon.Icon</component-class>
+	</component>
 
 	<render-kit>
 		<renderer>
 			<component-family>org.primefaces.material.component</component-family>
 			<renderer-type>org.primefaces.material.component.ToggleRenderer</renderer-type>
 			<renderer-class>org.primefaces.material.component.toggle.ToggleRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>org.primefaces.material.component</component-family>
+			<renderer-type>org.primefaces.material.component.IconRenderer</renderer-type>
+			<renderer-class>org.primefaces.material.component.icon.IconRenderer</renderer-class>
 		</renderer>
 	</render-kit>
 
