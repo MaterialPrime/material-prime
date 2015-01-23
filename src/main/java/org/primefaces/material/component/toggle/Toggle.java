@@ -2,9 +2,9 @@ package org.primefaces.material.component.toggle;
 
 import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
-import javax.faces.component.UIInput;
 
 import org.primefaces.component.selectbooleancheckbox.SelectBooleanCheckbox;
+import org.primefaces.material.MaterialPrime;
 
 @ResourceDependencies({
 	@ResourceDependency(library = "primefaces", name = "jquery/jquery.js"),
@@ -20,10 +20,9 @@ import org.primefaces.component.selectbooleancheckbox.SelectBooleanCheckbox;
 })
 public class Toggle extends SelectBooleanCheckbox {
 	public static final String COMPONENT_TYPE = "org.primefaces.material.component.Toggle";
-	public static final String COMPONENT_FAMILY = "org.primefaces.material.component";
 	
 	@Override
 	public String getFamily() {
-		return COMPONENT_FAMILY;
+		return MaterialPrime.COMPONENT_FAMILY;
 	}
 }
