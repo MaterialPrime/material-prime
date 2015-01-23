@@ -9,6 +9,7 @@ import javax.faces.convert.ConverterException;
 
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.ComponentUtils;
+import org.primefaces.util.HTML;
 import org.primefaces.util.WidgetBuilder;
 
 public class ToggleRenderer extends CoreRenderer {
@@ -61,9 +62,16 @@ public class ToggleRenderer extends CoreRenderer {
 				writer.startElement("input", null);
 					writer.writeAttribute("id", inputId, null);
 					writer.writeAttribute("name", inputId, null);
+					if(toggle.getTabindex() != null){
+			        	writer.writeAttribute("tabindex", toggle.getTabindex(), null);
+			        }
+					if(toggle.isDisabled()){
+						writer.writeAttribute("disabled", toggle.isDisabled(), null);
+					}
 					writer.writeAttribute("type", "checkbox", null);
 					writer.writeAttribute("checked",  checked, null);
 				writer.endElement("input");
+				writer.write(toggle.getItemLabel());
 			writer.endElement("label");	
 		writer.endElement("div");
 	}
