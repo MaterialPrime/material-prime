@@ -71,7 +71,9 @@ public class ToggleRenderer extends CoreRenderer {
 					writer.writeAttribute("type", "checkbox", null);
 					writer.writeAttribute("checked",  checked, null);
 				writer.endElement("input");
-				writer.write(toggle.getItemLabel());
+				if(toggle.getItemLabel() != null){
+					writer.write(toggle.getItemLabel());
+				}
 			writer.endElement("label");	
 		writer.endElement("div");
 	}
