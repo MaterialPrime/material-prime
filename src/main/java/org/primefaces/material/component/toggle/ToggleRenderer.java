@@ -7,9 +7,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.ConverterException;
 
+import org.primefaces.material.MaterialPrime;
+import org.primefaces.material.MaterialWidgetBuilder;
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.ComponentUtils;
-import org.primefaces.util.HTML;
 import org.primefaces.util.WidgetBuilder;
 
 public class ToggleRenderer extends CoreRenderer {
@@ -82,7 +83,7 @@ public class ToggleRenderer extends CoreRenderer {
 		String clientId = toggle.getClientId();
 		String widgetVar = toggle.resolveWidgetVar();
 		 
-		WidgetBuilder wb = getWidgetBuilder(context);
+		WidgetBuilder wb = MaterialWidgetBuilder.getInstance(context);
 		 
 		wb.initWithDomReady("Toggle", widgetVar, clientId);
 		wb.attr("widgetName", widgetVar);
