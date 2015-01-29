@@ -10,6 +10,6 @@ PrimeFaces.widget.Toggle = PrimeFaces.widget.BaseWidget.extend({
 			}
 		});
 		
-		 $.material.init();
+		$.material.init();
 	}
 });
