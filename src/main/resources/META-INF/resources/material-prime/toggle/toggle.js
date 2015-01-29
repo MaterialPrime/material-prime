@@ -1,4 +1,4 @@
-PrimeFaces.widget.Toggle = PrimeFaces.widget.BaseWidget.extend({
+MaterialPrime.widget.Toggle = PrimeFaces.widget.BaseWidget.extend({
 	init : function(cfg) {
 		this._super(cfg);
 		this.input = jQuery(this.jqId+"_input");
@@ -9,5 +9,7 @@ PrimeFaces.widget.Toggle = PrimeFaces.widget.BaseWidget.extend({
 				that.cfg.behaviors.valueChange.call(that.input);
 			}
 		});
+		
+		$.material.init();
 	}
 });
