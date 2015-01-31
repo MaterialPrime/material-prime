@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.ConverterException;
 
+import org.primefaces.material.MaterialWidgetBuilder;
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.ComponentUtils;
 import org.primefaces.util.WidgetBuilder;
@@ -83,7 +84,7 @@ public class CheckboxRenderer extends CoreRenderer {
 		String clientId = checkbox.getClientId();
 		String widgetVar = checkbox.resolveWidgetVar();
 		 
-		WidgetBuilder wb = getWidgetBuilder(context);
+		WidgetBuilder wb = MaterialWidgetBuilder.getInstance(context);
 		 
 		wb.initWithDomReady("Checkbox", widgetVar, clientId);
 		wb.attr("widgetName", widgetVar);
