@@ -1,4 +1,4 @@
-PrimeFaces.widget.Checkbox = PrimeFaces.widget.BaseWidget.extend({
+MaterialPrime.widget.Checkbox = PrimeFaces.widget.BaseWidget.extend({
 	init : function(cfg) {
 		this._super(cfg);
 		this.input = jQuery(this.jqId+"_input");
