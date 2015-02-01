@@ -294,4 +294,12 @@
 			<type>java.lang.String</type>
 		</attribute>
 	</tag>
+	<tag>
+		<description><![CDATA[Button Component]]></description>
+		<tag-name>button</tag-name>
+		<component>
+			<component-type>org.primefaces.material.component.Button</component-type>
+			<renderer-type>org.primefaces.material.component.ButtonRenderer</renderer-type>
+		</component>
+	</tag>
 </facelet-taglib>
