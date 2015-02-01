@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import org.primefaces.component.commandbutton.CommandButtonRenderer;
-import org.primefaces.material.MaterialLooks;
+import org.primefaces.material.MaterialPrime;
 import org.primefaces.material.MaterialWidgetBuilder;
 import org.primefaces.util.HTML;
 import org.primefaces.util.WidgetBuilder;
@@ -42,7 +42,7 @@ public class ButtonRenderer extends CommandButtonRenderer{
 		boolean pushButton = (button.getType().equals("reset")||button.getType().equals("button"));
         String request = pushButton ? null: buildRequest(context, button, button.getClientId());        
         String onclick = buildDomEvent(context, button, "onclick", "click", "action", request);		
-		String buttonClass = "btn " + getLookClass(button);
+		String buttonClass = getButtonClass(button);
 		
 		writer.startElement("button", button);		
 			writer.writeAttribute("id", button.getClientId(), null);
@@ -58,19 +58,28 @@ public class ButtonRenderer extends CommandButtonRenderer{
 	   writer.endElement("button");
 			
 	}
-	
-	private String getLookClass(Button button){
-		String look = "default";
+
+	private String getButtonClass(Button button) {
+		String btnClass = "btn";
 		
-		if(button.getLook() != null && button.getLook().length() > 0){
-			for(MaterialLooks mLook : MaterialLooks.values()){
-				if(mLook.name().equalsIgnoreCase(button.getLook())){
-					look = button.getLook();
-					break;
-				}
-			}
+		String buttonLook = button.getLook() != null ? button.getLook().toLowerCase() : "default";
+		if(!MaterialPrime.MATERIAL_LOOKS.contains(buttonLook)){
+			buttonLook = "default";
 		}
 		
-		return "btn-" + look;
+		btnClass += " btn-" + buttonLook;
+		
+		String buttonLevel = button.getLevel() != null ? button.getLevel().toLowerCase() : "default";
+		if(Button.BUTTON_LEVELS.contains(buttonLevel)){
+			btnClass += " btn-" + buttonLevel;
+		}
+		
+		String buttonSize = button.getSize() != null ? button.getSize().toLowerCase() : "default";
+		if(Button.BUTTON_SIZES.containsKey(buttonSize)){
+			btnClass += " btn-" + Button.BUTTON_SIZES.get(button.getSize());
+		}
+		
+		return btnClass;
 	}
+	
 }
