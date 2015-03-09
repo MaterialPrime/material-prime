@@ -43,6 +43,8 @@ public class ButtonRenderer extends CommandButtonRenderer{
         String request = pushButton ? null: buildRequest(context, button, button.getClientId());        
         String onclick = buildDomEvent(context, button, "onclick", "click", "action", request);		
 		String buttonClass = getButtonClass(button);
+		boolean hasText = button.getValue() != null;
+		boolean hasIcon = button.getIcon() != null;
 		
 		writer.startElement("button", button);		
 			writer.writeAttribute("id", button.getClientId(), null);
@@ -52,8 +54,29 @@ public class ButtonRenderer extends CommandButtonRenderer{
 
 	        if(button.isDisabled()) writer.writeAttribute("disabled", "disabled", "disabled");
 	        if(button.isReadonly()) writer.writeAttribute("readonly", "readonly", "readonly");
+	        
+	        if(hasIcon && button.getIconPos().equals("left")){
+	        	writer.startElement("i", null);
+					writer.writeAttribute("id", button.getClientId()+"_icon", null);
+					writer.writeAttribute("class", button.getIcon(), null);
+					if(hasText){
+						writer.writeAttribute("style", "margin-right:5px", null);
+					}
+				writer.endElement("i");
+	        }
+	        
 	        if(button.getValue() != null){
 	        	writer.write(button.getValue().toString());
+	        }
+	        
+	        if(hasIcon && button.getIconPos().equals("right")){
+	        	writer.startElement("i", null);
+					writer.writeAttribute("id", button.getClientId()+"_icon", null);
+					writer.writeAttribute("class", button.getIcon(), null);
+					if(hasText){
+						writer.writeAttribute("style", "margin-left:5px", null);
+					}
+				writer.endElement("i");
 	        }
 	   writer.endElement("button");
 			
