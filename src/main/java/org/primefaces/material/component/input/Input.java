@@ -1,4 +1,4 @@
-package org.primefaces.material.input;
+package org.primefaces.material.component.input;
 
 import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
