@@ -39,6 +39,11 @@
 		<component-type>org.primefaces.material.component.Button</component-type>
 		<component-class>org.primefaces.material.component.button.Button</component-class>
 	</component>
+	
+	<component>
+		<component-type>org.primefaces.material.component.Input</component-type>
+		<component-class>org.primefaces.material.component.input.Input</component-class>
+	</component>
 
 	<render-kit>
 		<renderer>
@@ -60,6 +65,11 @@
 			<component-family>org.primefaces.material.component</component-family>
 			<renderer-type>org.primefaces.material.component.ButtonRenderer</renderer-type>
 			<renderer-class>org.primefaces.material.component.button.ButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>org.primefaces.material.component</component-family>
+			<renderer-type>org.primefaces.material.component.InputRenderer</renderer-type>
+			<renderer-class>org.primefaces.material.component.input.InputRenderer</renderer-class>
 		</renderer>
 	</render-kit>
 

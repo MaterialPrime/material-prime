@@ -302,4 +302,12 @@
 			<renderer-type>org.primefaces.material.component.ButtonRenderer</renderer-type>
 		</component>
 	</tag>
+	<tag>
+		<description><![CDATA[input text Component]]></description>
+		<tag-name>input</tag-name>
+		<component>
+			<component-type>org.primefaces.material.component.Input</component-type>
+			<renderer-type>org.primefaces.material.component.InputRenderer</renderer-type>
+		</component>
+	</tag>
 </facelet-taglib>
