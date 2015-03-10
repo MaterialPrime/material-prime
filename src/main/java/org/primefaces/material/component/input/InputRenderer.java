@@ -35,6 +35,14 @@ public class InputRenderer extends CoreRenderer{
 		
 		writer.startElement("div", input);
 			writer.writeAttribute("id", input.getClientId(), null);
+			writer.writeAttribute("class", "form-group", null);
+				if(input.getLabel() != null){
+					writer.startElement("label", null);
+						writer.writeAttribute("class", "control-label", null);
+						writer.writeAttribute("for", inputId, null);
+						writer.write(input.getLabel());
+					writer.endElement("label");
+				}
 				writer.startElement("input", null);
 					writer.writeAttribute("id", inputId, null);
 					writer.writeAttribute("class", inputClass, null);
