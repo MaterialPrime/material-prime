@@ -1,10 +1,15 @@
 package org.primefaces.material.component.input;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
 
 import org.primefaces.component.inputtext.InputText;
 import org.primefaces.material.MaterialPrime;
+import org.primefaces.material.util.Strings;
 
 @ResourceDependencies({
 	@ResourceDependency(library = "primefaces", name = "jquery/jquery.js"),
@@ -20,9 +25,23 @@ import org.primefaces.material.MaterialPrime;
 })
 public class Input extends InputText {
 	public static final String COMPONENT_TYPE = "org.primefaces.material.component.Input";
+	static Map<String, String> INPUT_VALID_HEIGHT;
+	
+	static{
+		Map<String,String> sizes = new HashMap<String, String>();
+		
+		sizes.put("large", "lg");
+		sizes.put("default", "");
+		sizes.put("small", "sm");
+		
+		INPUT_VALID_HEIGHT = Collections.unmodifiableMap(sizes);
+	}
+	
 	
 	protected enum PropertyKeys {
-		floatingPlaceholder
+		floatingPlaceholder,
+		height,
+		hint
 	}
 	
 	@Override
@@ -36,5 +55,21 @@ public class Input extends InputText {
 
 	public void setFloatingPlaceholder(boolean floatingLabel) {
 		getStateHelper().put(PropertyKeys.floatingPlaceholder, floatingLabel);
+	}
+	
+	public String getHeight() {
+		return (String) getStateHelper().eval(PropertyKeys.height, "default");
+	}
+
+	public void setHeight(String height) {
+		getStateHelper().put(PropertyKeys.height, height);
+	}
+	
+	public String getHint() {
+		return (String) getStateHelper().eval(PropertyKeys.hint, Strings.EMPTY);
+	}
+
+	public void setHint(String hint) {
+		getStateHelper().put(PropertyKeys.hint, hint);
 	}
 }

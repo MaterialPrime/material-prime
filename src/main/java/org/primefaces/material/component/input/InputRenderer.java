@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import org.primefaces.material.MaterialWidgetBuilder;
+import org.primefaces.material.util.Strings;
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.HTML;
 import org.primefaces.util.WidgetBuilder;
@@ -25,8 +26,14 @@ public class InputRenderer extends CoreRenderer{
 
 	private String getInputCssClass(Input input){
 		String inputClass = "form-control";
+		
 		if(input.isFloatingPlaceholder() && input.getPlaceholder() != null){
 			inputClass += " floating-label";
+		}
+		
+		if(Strings.isNotEmpty(input.getHeight()) && Input.INPUT_VALID_HEIGHT.containsKey(input.getHeight()) && Strings.isNotEmpty(Input.INPUT_VALID_HEIGHT.get(input.getHeight()))){
+			inputClass += " input-";
+			inputClass += Input.INPUT_VALID_HEIGHT.get(input.getHeight());
 		}
 		
 		return inputClass;
@@ -52,6 +59,7 @@ public class InputRenderer extends CoreRenderer{
 					writer.writeAttribute("class", getInputCssClass(input), null);
 					writer.writeAttribute("type", input.getType(), null);
 					writer.writeAttribute("placeholder", input.getPlaceholder(), null);
+					writer.writeAttribute("data-hint", input.getHint(), null);
 					renderPassThruAttributes(context, input, HTML.INPUT_TEXT_ATTRS_WITHOUT_EVENTS);
 					renderDomEvents(context, input, HTML.INPUT_TEXT_EVENTS);
 				writer.endElement("input");
