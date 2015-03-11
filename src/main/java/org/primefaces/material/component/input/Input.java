@@ -25,6 +25,8 @@ import org.primefaces.material.util.Strings;
 })
 public class Input extends InputText {
 	public static final String COMPONENT_TYPE = "org.primefaces.material.component.Input";
+	static final String PRE_ADDON_FACET_NAME = "preAddon";
+	static final String POST_ADDON_FACET_NAME = "postAddon";
 	static Map<String, String> INPUT_VALID_HEIGHT;
 	
 	static{

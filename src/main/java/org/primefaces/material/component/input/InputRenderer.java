@@ -39,6 +39,10 @@ public class InputRenderer extends CoreRenderer{
 		return inputClass;
 	}
 	
+	private boolean hasAddons(Input input){
+		return input.getFacet(Input.PRE_ADDON_FACET_NAME) != null || input.getFacet(Input.POST_ADDON_FACET_NAME) != null;
+	}
+	
 	private void encodeMarkup(FacesContext context, Input input) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		
@@ -54,6 +58,19 @@ public class InputRenderer extends CoreRenderer{
 						writer.write(input.getLabel());
 					writer.endElement("label");
 				}
+				
+				if(hasAddons(input)){
+					writer.startElement("div", null);
+					writer.writeAttribute("class", "input-group", null);
+					
+					if(input.getFacet(Input.PRE_ADDON_FACET_NAME) != null){
+						writer.startElement("span", null);
+						writer.writeAttribute("class", "input-group-addon", null);
+						this.renderChild(context, input.getFacet(Input.PRE_ADDON_FACET_NAME));
+						writer.endElement("span");
+					}
+				}
+				
 				writer.startElement("input", null);
 					writer.writeAttribute("id", inputId, null);
 					writer.writeAttribute("class", getInputCssClass(input), null);
@@ -63,6 +80,18 @@ public class InputRenderer extends CoreRenderer{
 					renderPassThruAttributes(context, input, HTML.INPUT_TEXT_ATTRS_WITHOUT_EVENTS);
 					renderDomEvents(context, input, HTML.INPUT_TEXT_EVENTS);
 				writer.endElement("input");
+				
+				if(hasAddons(input)){
+					
+					if(input.getFacet(Input.POST_ADDON_FACET_NAME) != null){
+						writer.startElement("span", null);
+						writer.writeAttribute("class", "input-group-addon", null);
+						this.renderChild(context, input.getFacet(Input.POST_ADDON_FACET_NAME));
+						writer.endElement("span");
+					}
+					
+					writer.endElement("div");
+				}
 		writer.endElement("div");
 	}
 	
