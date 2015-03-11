@@ -23,15 +23,19 @@ public class InputRenderer extends CoreRenderer{
 		encodeScript(context, input);
 	}
 
+	private String getInputCssClass(Input input){
+		String inputClass = "form-control";
+		if(input.isFloatingPlaceholder() && input.getPlaceholder() != null){
+			inputClass += " floating-label";
+		}
+		
+		return inputClass;
+	}
+	
 	private void encodeMarkup(FacesContext context, Input input) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		
 		String inputId = input.getClientId() + "_input";
-		
-		String inputClass = "form-control";
-		if(input.getPlaceholder() != null){
-			inputClass += " floating-label";
-		}
 		
 		writer.startElement("div", input);
 			writer.writeAttribute("id", input.getClientId(), null);
@@ -45,7 +49,7 @@ public class InputRenderer extends CoreRenderer{
 				}
 				writer.startElement("input", null);
 					writer.writeAttribute("id", inputId, null);
-					writer.writeAttribute("class", inputClass, null);
+					writer.writeAttribute("class", getInputCssClass(input), null);
 					writer.writeAttribute("type", input.getType(), null);
 					writer.writeAttribute("placeholder", input.getPlaceholder(), null);
 					renderPassThruAttributes(context, input, HTML.INPUT_TEXT_ATTRS_WITHOUT_EVENTS);

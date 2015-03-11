@@ -21,8 +21,20 @@ import org.primefaces.material.MaterialPrime;
 public class Input extends InputText {
 	public static final String COMPONENT_TYPE = "org.primefaces.material.component.Input";
 	
+	protected enum PropertyKeys {
+		floatingPlaceholder
+	}
+	
 	@Override
 	public String getFamily() {
 		return MaterialPrime.COMPONENT_FAMILY;
+	}
+	
+	public boolean isFloatingPlaceholder() {
+		return (Boolean) getStateHelper().eval(PropertyKeys.floatingPlaceholder, true);
+	}
+
+	public void setFloatingPlaceholder(boolean floatingLabel) {
+		getStateHelper().put(PropertyKeys.floatingPlaceholder, floatingLabel);
 	}
 }
