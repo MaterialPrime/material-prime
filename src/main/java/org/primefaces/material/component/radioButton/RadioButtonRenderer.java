@@ -2,13 +2,17 @@ package org.primefaces.material.component.radioButton;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.component.UIComponent;
+import javax.faces.component.UISelectItem;
+import javax.faces.component.UISelectOne;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.ConverterException;
 import javax.faces.model.SelectItem;
 
+import org.primefaces.component.selectoneradio.SelectOneRadioRenderer;
 import org.primefaces.material.MaterialWidgetBuilder;
 import org.primefaces.renderkit.InputRenderer;
 import org.primefaces.util.ComponentUtils;
@@ -16,7 +20,7 @@ import org.primefaces.util.WidgetBuilder;
 
 public class RadioButtonRenderer extends InputRenderer {
 	public static final String RENDERER_TYPE = "org.primefaces.material.component.RadioButtonRenderer";
-	
+	SelectOneRadioRenderer x;
 	@Override
 	public void decode(FacesContext context, UIComponent component) {
 		RadioButton radioButton = (RadioButton) component;
@@ -30,12 +34,9 @@ public class RadioButtonRenderer extends InputRenderer {
 		String clientId = radioButton.getClientId(context);
 		String submittedValue = (String) context.getExternalContext().getRequestParameterMap().get(clientId + "_input");
 
-		if(submittedValue != null && isChecked(submittedValue)) {
-			radioButton.setSubmittedValue(true);
-		}
-		else {
-			radioButton.setSubmittedValue(false);
-		}
+		if(submittedValue!=null){
+			radioButton.setSubmittedValue(submittedValue);	
+		}		
 	}
 
 	protected boolean isChecked(String value) {
@@ -55,11 +56,10 @@ public class RadioButtonRenderer extends InputRenderer {
 						
 		String inputId = radioButton.getClientId() + "_input";
 		
-		boolean checked = Boolean.valueOf(ComponentUtils.getValueToRender(context, radioButton));
-		
 		List<SelectItem> selectItems = getSelectItems(context, radioButton);
 		
 		writer.startElement("div", radioButton);
+			writer.writeAttribute("id", radioButton.getClientId(),null);
 			writer.writeAttribute("class", "col-lg-10", null);				
 			
 			int i=0;
@@ -76,7 +76,7 @@ public class RadioButtonRenderer extends InputRenderer {
 							writer.writeAttribute("name", inputId, null);
 							writer.writeAttribute("value", selectItem.getValue(), null);
 						//	if(i==1){
-								writer.writeAttribute("checked", checked, null);	
+								writer.writeAttribute("checked", selectItem.getValue().equals(radioButton.getValue()), null);	
 						//	}														
 							writer.write(selectItem.getLabel());		
 						writer.endElement("input");	
@@ -102,10 +102,5 @@ public class RadioButtonRenderer extends InputRenderer {
 		 
 		wb.finish();
 		 
-	}
-	
-	@Override
-	public Object getConvertedValue(FacesContext context, UIComponent component, Object submittedValue) throws ConverterException {
-		return ((submittedValue instanceof Boolean) ? submittedValue : Boolean.valueOf(submittedValue.toString()));
 	}
 }

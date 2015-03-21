@@ -44,6 +44,12 @@
 		<component-type>org.primefaces.material.component.Button</component-type>
 		<component-class>org.primefaces.material.component.button.Button</component-class>
 	</component>
+	
+	<component>
+		<component-type>org.primefaces.material.component.SelectOne</component-type>
+		<component-class>org.primefaces.material.component.selectOne.SelectOne</component-class>
+	</component>
+	
 
 	<render-kit>
 		<renderer>
@@ -70,6 +76,11 @@
 			<component-family>org.primefaces.material.component</component-family>
 			<renderer-type>org.primefaces.material.component.ButtonRenderer</renderer-type>
 			<renderer-class>org.primefaces.material.component.button.ButtonRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>org.primefaces.material.component</component-family>
+			<renderer-type>org.primefaces.material.component.SelectOneRenderer</renderer-type>
+			<renderer-class>org.primefaces.material.component.selectOne.SelectOneRenderer</renderer-class>
 		</renderer>
 	</render-kit>
 
