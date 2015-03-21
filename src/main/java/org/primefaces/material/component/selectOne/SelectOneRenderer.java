@@ -14,7 +14,7 @@ import org.primefaces.util.WidgetBuilder;
 
 public class SelectOneRenderer extends InputRenderer {
 	public static final String RENDERER_TYPE = "org.primefaces.material.component.SelectOneRenderer";
-	org.primefaces.component.selectonemenu.SelectOneMenuRenderer x;
+
 	@Override
 	public void decode(FacesContext context, UIComponent component) {
 		SelectOne selectOne = (SelectOne) component;

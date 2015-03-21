@@ -2,11 +2,6 @@ package org.primefaces.material.component.selectOne;
 
 import javax.faces.application.ResourceDependencies;
 import javax.faces.application.ResourceDependency;
-import javax.faces.component.UINamingContainer;
-import javax.faces.component.html.HtmlSelectOneRadio;
-import javax.faces.context.FacesContext;
-
-import org.primefaces.component.api.Widget;
 import org.primefaces.component.selectonemenu.SelectOneMenu;
 import org.primefaces.material.MaterialPrime;
 

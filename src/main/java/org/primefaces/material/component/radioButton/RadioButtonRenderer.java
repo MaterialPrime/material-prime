@@ -20,7 +20,7 @@ import org.primefaces.util.WidgetBuilder;
 
 public class RadioButtonRenderer extends InputRenderer {
 	public static final String RENDERER_TYPE = "org.primefaces.material.component.RadioButtonRenderer";
-	SelectOneRadioRenderer x;
+
 	@Override
 	public void decode(FacesContext context, UIComponent component) {
 		RadioButton radioButton = (RadioButton) component;
@@ -75,9 +75,8 @@ public class RadioButtonRenderer extends InputRenderer {
 							writer.writeAttribute("type", "radio", null);
 							writer.writeAttribute("name", inputId, null);
 							writer.writeAttribute("value", selectItem.getValue(), null);
-						//	if(i==1){
-								writer.writeAttribute("checked", selectItem.getValue().equals(radioButton.getValue()), null);	
-						//	}														
+							writer.writeAttribute("checked", selectItem.getValue().equals(radioButton.getValue()), null);	
+																				
 							writer.write(selectItem.getLabel());		
 						writer.endElement("input");	
 						
