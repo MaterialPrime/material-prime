@@ -45,7 +45,3 @@
     window.MaterialPrime = MaterialPrime;
 
 })(window);
-
-$(function() {
-    $.material.init();
-});
