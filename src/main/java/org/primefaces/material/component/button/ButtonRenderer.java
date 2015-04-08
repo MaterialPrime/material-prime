@@ -1,6 +1,7 @@
 package org.primefaces.material.component.button;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,51 +56,32 @@ public class ButtonRenderer extends CommandButtonRenderer{
 	        if(button.isDisabled()) writer.writeAttribute("disabled", "disabled", "disabled");
 	        if(button.isReadonly()) writer.writeAttribute("readonly", "readonly", "readonly");
 	        
-	        if(hasIcon && button.getIconPos().equals("left")){
+	        if(hasIcon){
 	        	writer.startElement("i", null);
 					writer.writeAttribute("id", button.getClientId()+"_icon", null);
-					writer.writeAttribute("class", button.getIcon(), null);
-					if(hasText){
-						writer.writeAttribute("style", "margin-right:5px", null);
-					}
+					writer.writeAttribute("class", button.getIcon() + " " + button.getIconPos(), null);
 				writer.endElement("i");
 	        }
 	        
 	        if(button.getValue() != null){
 	        	writer.write(button.getValue().toString());
 	        }
-	        
-	        if(hasIcon && button.getIconPos().equals("right")){
-	        	writer.startElement("i", null);
-					writer.writeAttribute("id", button.getClientId()+"_icon", null);
-					writer.writeAttribute("class", button.getIcon(), null);
-					if(hasText){
-						writer.writeAttribute("style", "margin-left:5px", null);
-					}
-				writer.endElement("i");
-	        }
 	   writer.endElement("button");
 			
 	}
 
 	private String getButtonClass(Button button) {
-		String btnClass = "btn";
 		
-		String buttonLook = button.getLook() != null ? button.getLook().toLowerCase() : "default";
-		if(!MaterialPrime.MATERIAL_LOOKS.contains(buttonLook)){
-			buttonLook = "default";
+		String btnClass = "waves-effect waves-light ";
+		btnClass += button.isFlat() ? "btn-flat" : "btn";
+		
+		String buttonSize = button.getSize() != null ? button.getSize().toLowerCase() : "small";
+		if(Button.BUTTON_SIZES.contains(buttonSize)){
+			btnClass += " btn-" + buttonSize;
 		}
 		
-		btnClass += " btn-" + buttonLook;
-		
-		String buttonLevel = button.getLevel() != null ? button.getLevel().toLowerCase() : "default";
-		if(Button.BUTTON_LEVELS.contains(buttonLevel)){
-			btnClass += " btn-" + buttonLevel;
-		}
-		
-		String buttonSize = button.getSize() != null ? button.getSize().toLowerCase() : "default";
-		if(Button.BUTTON_SIZES.containsKey(buttonSize)){
-			btnClass += " btn-" + Button.BUTTON_SIZES.get(button.getSize());
+		if(button.isDisabled()){
+			btnClass += " disabled";
 		}
 		
 		return btnClass;
