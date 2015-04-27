@@ -9,7 +9,5 @@ MaterialPrime.widget.Checkbox = PrimeFaces.widget.BaseWidget.extend({
 				that.cfg.behaviors.valueChange.call(that.input);
 			}
 		});
-		
-		$.material.init();
 	}
 });

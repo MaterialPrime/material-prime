@@ -55,29 +55,29 @@ public class CheckboxRenderer extends CoreRenderer {
 		
 		String inputId = checkbox.getClientId() + "_input";
 		
-		writer.startElement("div", checkbox);		
+		writer.startElement("p", checkbox);		
 			writer.writeAttribute("id", checkbox.getClientId(), null);
-			writer.writeAttribute("class", "checkbox", null);			
+			
+			writer.startElement("input", null);
+				writer.writeAttribute("id", inputId, null);
+				writer.writeAttribute("class", "checkbox", null);
+				writer.writeAttribute("name", inputId, null);
+				if(checkbox.getTabindex() != null){
+		        	writer.writeAttribute("tabindex", checkbox.getTabindex(), null);
+		        }
+				if(checkbox.isDisabled()){
+					writer.writeAttribute("disabled", checkbox.isDisabled(), null);
+				}
+				writer.writeAttribute("type", "checkbox", null);
+				writer.writeAttribute("checked",  checked, null);
+			writer.endElement("input");				
 			
 			writer.startElement("label", null);
-				
-				writer.startElement("input", null);
-					writer.writeAttribute("id", inputId, null);
-					writer.writeAttribute("name", inputId, null);
-					if(checkbox.getTabindex() != null){
-			        	writer.writeAttribute("tabindex", checkbox.getTabindex(), null);
-			        }
-					if(checkbox.isDisabled()){
-						writer.writeAttribute("disabled", checkbox.isDisabled(), null);
-					}
-					writer.writeAttribute("type", "checkbox", null);
-					writer.writeAttribute("checked",  checked, null);
-				writer.endElement("input");				
+				writer.writeAttribute("for", inputId, null);
 				writer.write(checkbox.getItemLabel());		
-				
 			writer.endElement("label");		
 			
-		writer.endElement("div");
+		writer.endElement("p");
 	}
 	
 	private void encodeScript(FacesContext context, Checkbox checkbox) throws IOException {
