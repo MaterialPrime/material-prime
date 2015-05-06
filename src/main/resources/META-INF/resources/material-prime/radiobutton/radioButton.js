@@ -11,7 +11,5 @@ MaterialPrime.widget.RadioButton = PrimeFaces.widget.BaseWidget.extend({
 				that.cfg.behaviors.valueChange.call(this.jqId);
 			}
 		});
-
-		$.material.init();
 	}
 });

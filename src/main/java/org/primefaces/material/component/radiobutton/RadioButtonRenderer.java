@@ -54,35 +54,42 @@ public class RadioButtonRenderer extends InputRenderer {
 		
 		writer.startElement("div", radioButton);
 			writer.writeAttribute("id", radioButton.getClientId(),null);
-			writer.writeAttribute("class", "col-lg-10", null);				
 			
 			int i=0;
 			for (SelectItem selectItem : selectItems) {
 				i++;
-				writer.startElement("div", radioButton);
-					writer.writeAttribute("class", "radio radio-primary", null);	
+				writer.startElement("p", null);
 					
+					writer.startElement("input", null);
+						writer.writeAttribute("id", inputId+i, null);
+						writer.writeAttribute("type", "radio", null);
+						writer.writeAttribute("name", inputId, null);
+						writer.writeAttribute("class", getInputClass(radioButton), null);
+						writer.writeAttribute("value", selectItem.getValue(), null);
+						writer.writeAttribute("checked", selectItem.getValue().equals(radioButton.getValue()), null);	
+					writer.endElement("input");	
 					writer.startElement("label", null);
-						
-						writer.startElement("input", null);
-							writer.writeAttribute("id", inputId+i, null);
-							writer.writeAttribute("type", "radio", null);
-							writer.writeAttribute("name", inputId, null);
-							writer.writeAttribute("value", selectItem.getValue(), null);
-							writer.writeAttribute("checked", selectItem.getValue().equals(radioButton.getValue()), null);	
-																				
-							writer.write(selectItem.getLabel());		
-						writer.endElement("input");	
-						
+						writer.writeAttribute("for", inputId+i, null);
+						writer.write(selectItem.getLabel());
 					writer.endElement("label");	
 					
-				writer.endElement("div");
+				writer.endElement("p");
 			}						
 			
 		writer.endElement("div");				
 		
 	}
 	
+	private String getInputClass(RadioButton radioButton) {
+		String toReturn = "";
+		
+		if(radioButton.isWithGap()){
+			toReturn += " with-gap ";
+		}
+		
+		return toReturn;
+	}
+
 	private void encodeScript(FacesContext context, RadioButton radioButton) throws IOException {
 		String clientId = radioButton.getClientId();
 		String widgetVar = radioButton.resolveWidgetVar();

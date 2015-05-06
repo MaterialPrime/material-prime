@@ -29,6 +29,14 @@ public class RadioButton extends HtmlSelectOneRadio implements Widget{
 		return MaterialPrime.COMPONENT_FAMILY;
 	}
 	
+	public boolean isWithGap(){
+		return (Boolean) getStateHelper().eval(PropertyKeys.withGap,false);
+	}
+	
+	public void setWithGap(boolean withGap){
+		getStateHelper().put(PropertyKeys.withGap, withGap);
+	}
+	
 	public java.lang.String getWidgetVar() {
 		return (java.lang.String) getStateHelper().eval(PropertyKeys.widgetVar, null);
 	}
@@ -47,7 +55,8 @@ public class RadioButton extends HtmlSelectOneRadio implements Widget{
 	}
 	
 	protected enum PropertyKeys {
-
+		
+		withGap,
 		widgetVar;
 
 		String toString;
