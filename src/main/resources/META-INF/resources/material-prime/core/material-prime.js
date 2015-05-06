@@ -14,7 +14,7 @@
 	     createWidget : function(widgetConstructor, widgetVar, cfg, resource) { 
 	         if(MaterialPrime.widget[widgetConstructor]) {
 	             if(MaterialPrime.widgets[widgetVar]) {
-	            	 MaterialPrime.widgets[widgetVar].refresh(cfg);                                     //ajax update
+	            	 MaterialPrime.widgets[widgetVar].refresh(cfg);//ajax update
 	             }
 	             else {
 	            	 MaterialPrime.widgets[widgetVar] = new MaterialPrime.widget[widgetConstructor](cfg);  //page init
