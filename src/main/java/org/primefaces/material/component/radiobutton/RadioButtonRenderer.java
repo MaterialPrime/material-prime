@@ -2,20 +2,14 @@ package org.primefaces.material.component.radiobutton;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import javax.faces.component.UIComponent;
-import javax.faces.component.UISelectItem;
-import javax.faces.component.UISelectOne;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
-import javax.faces.convert.ConverterException;
 import javax.faces.model.SelectItem;
 
-import org.primefaces.component.selectoneradio.SelectOneRadioRenderer;
 import org.primefaces.material.MaterialWidgetBuilder;
 import org.primefaces.renderkit.InputRenderer;
-import org.primefaces.util.ComponentUtils;
 import org.primefaces.util.WidgetBuilder;
 
 public class RadioButtonRenderer extends InputRenderer {
