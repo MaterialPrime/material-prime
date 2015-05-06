@@ -57,7 +57,7 @@ public class ToggleRenderer extends CoreRenderer {
 		
 		writer.startElement("div", toggle);
 			writer.writeAttribute("id", toggle.getClientId(), null);
-			writer.writeAttribute("class", "togglebutton", null);
+			writer.writeAttribute("class", "switch", null);
 			writer.startElement("label", null);
 				writer.startElement("input", null);
 					writer.writeAttribute("id", inputId, null);
@@ -71,6 +71,9 @@ public class ToggleRenderer extends CoreRenderer {
 					writer.writeAttribute("type", "checkbox", null);
 					writer.writeAttribute("checked",  checked, null);
 				writer.endElement("input");
+				writer.startElement("span", null);
+					writer.writeAttribute("class", "lever", null);
+				writer.endElement("span");
 				if(toggle.getItemLabel() != null){
 					writer.write(toggle.getItemLabel());
 				}
