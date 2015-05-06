@@ -37,7 +37,7 @@
 	
 	<component>
 		<component-type>org.primefaces.material.component.RadioButton</component-type>
-		<component-class>org.primefaces.material.component.radioButton.RadioButton</component-class>
+		<component-class>org.primefaces.material.component.radiobutton.RadioButton</component-class>
 	</component>
 	
 	<component>
@@ -74,7 +74,7 @@
 		<renderer>
 			<component-family>org.primefaces.material.component</component-family>		
 			<renderer-type>org.primefaces.material.component.RadioButtonRenderer</renderer-type>
-			<renderer-class>org.primefaces.material.component.radioButton.RadioButtonRenderer</renderer-class>
+			<renderer-class>org.primefaces.material.component.radiobutton.RadioButtonRenderer</renderer-class>
 		</renderer>
 		<renderer>
 			<component-family>org.primefaces.material.component</component-family>
