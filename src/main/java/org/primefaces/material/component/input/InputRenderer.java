@@ -24,74 +24,45 @@ public class InputRenderer extends CoreRenderer{
 		encodeScript(context, input);
 	}
 
-	private String getInputCssClass(Input input){
-		String inputClass = "form-control";
-		
-		if(input.isFloatingPlaceholder() && input.getPlaceholder() != null){
-			inputClass += " floating-label";
-		}
-		
-		if(Strings.isNotEmpty(input.getHeight()) && Input.INPUT_VALID_HEIGHT.containsKey(input.getHeight()) && Strings.isNotEmpty(Input.INPUT_VALID_HEIGHT.get(input.getHeight()))){
-			inputClass += " input-";
-			inputClass += Input.INPUT_VALID_HEIGHT.get(input.getHeight());
-		}
-		
-		return inputClass;
-	}
-	
+	//TODO: manage add-ons
 	private boolean hasAddons(Input input){
 		return input.getFacet(Input.PRE_ADDON_FACET_NAME) != null || input.getFacet(Input.POST_ADDON_FACET_NAME) != null;
 	}
 	
 	private void encodeMarkup(FacesContext context, Input input) throws IOException {
+		
+		/*
+		 * <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+		 */
+		
 		ResponseWriter writer = context.getResponseWriter();
 		
 		String inputId = input.getClientId() + "_input";
 		
 		writer.startElement("div", input);
 			writer.writeAttribute("id", input.getClientId(), null);
-			writer.writeAttribute("class", "form-group", null);
-				if(input.getLabel() != null){
-					writer.startElement("label", null);
-						writer.writeAttribute("class", "control-label", null);
-						writer.writeAttribute("for", inputId, null);
-						writer.write(input.getLabel());
-					writer.endElement("label");
-				}
-				
-				if(hasAddons(input)){
-					writer.startElement("div", null);
-					writer.writeAttribute("class", "input-group", null);
-					
-					if(input.getFacet(Input.PRE_ADDON_FACET_NAME) != null){
-						writer.startElement("span", null);
-						writer.writeAttribute("class", "input-group-addon", null);
-						this.renderChild(context, input.getFacet(Input.PRE_ADDON_FACET_NAME));
-						writer.endElement("span");
-					}
-				}
+			writer.writeAttribute("class", "input-field", null);
 				
 				writer.startElement("input", null);
 					writer.writeAttribute("id", inputId, null);
-					writer.writeAttribute("class", getInputCssClass(input), null);
+					writer.writeAttribute("class", "validate", null);
 					writer.writeAttribute("type", input.getType(), null);
 					writer.writeAttribute("placeholder", input.getPlaceholder(), null);
-					writer.writeAttribute("data-hint", input.getHint(), null);
 					renderPassThruAttributes(context, input, HTML.INPUT_TEXT_ATTRS_WITHOUT_EVENTS);
 					renderDomEvents(context, input, HTML.INPUT_TEXT_EVENTS);
 				writer.endElement("input");
 				
-				if(hasAddons(input)){
-					
-					if(input.getFacet(Input.POST_ADDON_FACET_NAME) != null){
-						writer.startElement("span", null);
-						writer.writeAttribute("class", "input-group-addon", null);
-						this.renderChild(context, input.getFacet(Input.POST_ADDON_FACET_NAME));
-						writer.endElement("span");
-					}
-					
-					writer.endElement("div");
+				if(input.getLabel() != null){
+					writer.startElement("label", null);
+						writer.writeAttribute("for", inputId, null);
+						writer.writeAttribute("class", "active", null);
+						writer.write(input.getLabel());
+					writer.endElement("label");
 				}
+				
 		writer.endElement("div");
 	}
 	
