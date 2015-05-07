@@ -17,9 +17,11 @@ import org.primefaces.material.MaterialPrime;
 public class Icon extends UIComponentBase{
 
 	public static final String COMPONENT_TYPE = "org.primefaces.material.component.Icon";
+	static String[] VALID_SIZE_VALUES = {"tiny","small","medium","large"};
 	
 	protected enum PropertyKeys {
-		name
+		name,
+		size
 	}
 	
 	public Icon() {
@@ -36,6 +38,14 @@ public class Icon extends UIComponentBase{
 	
 	public void setName(String name) {
 		getStateHelper().put(PropertyKeys.name, name);
+	}
+	
+	public String getSize() {
+		return (String) getStateHelper().eval(PropertyKeys.size, VALID_SIZE_VALUES[0]);
+	}
+	
+	public void setSize(String size) {
+		getStateHelper().put(PropertyKeys.size, size);
 	}
 
 }
