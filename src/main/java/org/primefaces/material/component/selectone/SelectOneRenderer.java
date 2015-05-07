@@ -14,7 +14,7 @@ import org.primefaces.util.WidgetBuilder;
 
 public class SelectOneRenderer extends InputRenderer {
 	public static final String RENDERER_TYPE = "org.primefaces.material.component.SelectOneRenderer";
-
+	
 	@Override
 	public void decode(FacesContext context, UIComponent component) {
 		SelectOne selectOne = (SelectOne) component;
@@ -49,10 +49,10 @@ public class SelectOneRenderer extends InputRenderer {
 		List<SelectItem> selectItems = getSelectItems(context, selectOne);
 		
 		writer.startElement("div", selectOne);
-			writer.writeAttribute("class", "col-lg-10", null);				
+			writer.writeAttribute("class", "input-field", null);				
 			
 			writer.startElement("select", selectOne);
-				writer.writeAttribute("class", "form-control", null);	
+				writer.writeAttribute("class", getSelectClass(selectOne), null);	
 				writer.writeAttribute("id", inputId, null);	
 				writer.writeAttribute("name", inputId, null);	
 				
@@ -71,6 +71,15 @@ public class SelectOneRenderer extends InputRenderer {
 		
 	}
 	
+	private String getSelectClass(SelectOne selectOne) {
+		String toReturn = "";
+		if(selectOne.isNativeMode()){
+			toReturn += " browser-default ";
+		}
+		
+		return toReturn;
+	}
+
 	private void encodeScript(FacesContext context, SelectOne selectOne) throws IOException {
 		String clientId = selectOne.getClientId();
 		String widgetVar = selectOne.resolveWidgetVar();
