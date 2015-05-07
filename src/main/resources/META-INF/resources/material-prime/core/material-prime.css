@@ -58,3 +58,17 @@ img {
 .img-circle {
   border-radius: 50%;
 }
+
+/*Tabs*/
+
+.tabs .indicator {
+    background-color: #ff9800;
+}
+
+.tabs .tab a:hover {
+    color: #e65100; 
+}
+
+.tabs .tab a {
+    color: #ff9800;
+}
