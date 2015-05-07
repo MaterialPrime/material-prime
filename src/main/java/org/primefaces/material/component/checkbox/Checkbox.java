@@ -12,6 +12,7 @@ import org.primefaces.material.MaterialPrime;
 	@ResourceDependency(library = "material-prime", name = "libs/materialize.css"),
 	@ResourceDependency(library = "material-prime", name = "libs/materialize.js"),
 	@ResourceDependency(library = "material-prime", name = "core/material-prime.js"),
+	@ResourceDependency(library = "material-prime", name = "core/material-prime.css"),
 	@ResourceDependency(library = "material-prime", name = "checkbox/checkbox.js")
 })
 public class Checkbox extends SelectBooleanCheckbox {

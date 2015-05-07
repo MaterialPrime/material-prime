@@ -11,6 +11,7 @@ import org.primefaces.material.MaterialPrime;
 	@ResourceDependency(library = "primefaces", name = "primefaces.js"),
 	@ResourceDependency(library = "material-prime", name = "libs/materialize.css"),
 	@ResourceDependency(library = "material-prime", name = "libs/materialize.js"),
+	@ResourceDependency(library = "material-prime", name = "core/material-prime.css"),
 	@ResourceDependency(library = "material-prime", name = "core/material-prime.js")
 })
 public class Icon extends UIComponentBase{
