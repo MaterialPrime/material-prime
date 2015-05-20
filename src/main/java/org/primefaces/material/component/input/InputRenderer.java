@@ -31,13 +31,6 @@ public class InputRenderer extends CoreRenderer{
 	
 	private void encodeMarkup(FacesContext context, Input input) throws IOException {
 		
-		/*
-		 * <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-		 */
-		
 		ResponseWriter writer = context.getResponseWriter();
 		
 		String inputId = input.getClientId() + "_input";
@@ -50,6 +43,9 @@ public class InputRenderer extends CoreRenderer{
 					writer.writeAttribute("id", inputId, null);
 					writer.writeAttribute("class", "validate", null);
 					writer.writeAttribute("type", input.getType(), null);
+					if(input.isDisabled()){
+						writer.writeAttribute("disabled", "true", null);
+					}
 					writer.writeAttribute("placeholder", input.getPlaceholder(), null);
 					renderPassThruAttributes(context, input, HTML.INPUT_TEXT_ATTRS_WITHOUT_EVENTS);
 					renderDomEvents(context, input, HTML.INPUT_TEXT_EVENTS);
