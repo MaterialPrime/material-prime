@@ -8,6 +8,7 @@ import javax.faces.context.ResponseWriter;
 
 import org.primefaces.component.commandbutton.CommandButtonRenderer;
 import org.primefaces.material.MaterialWidgetBuilder;
+import org.primefaces.material.util.Strings;
 import org.primefaces.util.HTML;
 import org.primefaces.util.WidgetBuilder;
 
@@ -48,6 +49,9 @@ public class ButtonRenderer extends CommandButtonRenderer{
 			writer.writeAttribute("id", button.getClientId(), null);
 			writer.writeAttribute("class", buttonClass , null);	
 			writer.writeAttribute("onclick", onclick, "onclick");
+			writer.writeAttribute("data-tooltip", button.getTooltip(), "tooltip");
+			writer.writeAttribute("data-delay", 50, null);
+			writer.writeAttribute("data-position", button.getTooltipPos(), "tooltipPos");
 			renderPassThruAttributes(context, button, HTML.BUTTON_ATTRS, HTML.CLICK_EVENT);
 
 	        if(button.isDisabled()) writer.writeAttribute("disabled", "disabled", "disabled");
@@ -83,6 +87,10 @@ public class ButtonRenderer extends CommandButtonRenderer{
 		String buttonSize = button.getSize() != null ? button.getSize().toLowerCase() : "small";
 		if(Button.BUTTON_SIZES.contains(buttonSize)){
 			btnClass += " btn-" + buttonSize;
+		}
+		
+		if(Strings.isNotEmpty(button.getTooltip())){
+			btnClass += " tooltipped";
 		}
 		
 		if(button.isDisabled()){

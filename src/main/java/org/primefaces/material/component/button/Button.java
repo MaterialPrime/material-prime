@@ -25,7 +25,9 @@ public class Button extends CommandButton{
 	
 	protected enum PropertyKeys {
 		size,
-		flat
+		flat,
+		tooltip,
+		tooltipPos,
 	}
 	
 	public Button() {
@@ -51,5 +53,21 @@ public class Button extends CommandButton{
 
 	public void setSize(String size) {
 		getStateHelper().put(PropertyKeys.size, size);
+	}
+	
+	public String getTooltip() {
+		return (String) getStateHelper().eval(PropertyKeys.tooltip,null);
+	}
+
+	public void setTooltip(String tooltip) {
+		getStateHelper().put(PropertyKeys.tooltip, tooltip);
+	}
+	
+	public String getTooltipPos() {
+		return (String) getStateHelper().eval(PropertyKeys.tooltipPos,"top");
+	}
+
+	public void setTooltipPos(String tooltipPos) {
+		getStateHelper().put(PropertyKeys.tooltipPos, tooltipPos);
 	}
 }
