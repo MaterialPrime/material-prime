@@ -5,10 +5,14 @@
         return;
     }
     
+    var toast = function(message,duration,rounded){
+    	window.Materialize.toast(message,duration || 1000, rounded ? 'rounded' : '');
+    }
+    
     var MaterialPrime = {
 		 widget:{},
     	 widgets:{},
-    	 toast:window.Materialize.toast,
+    	 toast:toast,
 		 cw : function(widgetConstructor, widgetVar, cfg, resource) {
 			 MaterialPrime.createWidget(widgetConstructor, widgetVar, cfg, resource);
 	     },

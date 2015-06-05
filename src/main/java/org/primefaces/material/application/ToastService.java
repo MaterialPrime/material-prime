@@ -5,7 +5,7 @@ import org.primefaces.material.util.Strings;
 
 public class ToastService {
 	private static final int DURATION = 1000;
-	private static final String TOAST_SCRIPT = "MaterialPrime.toast('%s', %d, '%s')";
+	private static final String TOAST_SCRIPT = "MaterialPrime.toast('%s', %d, %s)";
 	private static ToastService instance;
 
 	private ToastService() {
@@ -25,7 +25,7 @@ public class ToastService {
 	 * @param rounded - to show a rounded toast
 	 */
 	public void newToast(String message,int duration, boolean rounded){
-		RequestContext.getCurrentInstance().execute(String.format(TOAST_SCRIPT, message,duration, rounded ? "rounded" : Strings.EMPTY));
+		RequestContext.getCurrentInstance().execute(String.format(TOAST_SCRIPT, message,duration, rounded));
 	}
 	
 	/**
