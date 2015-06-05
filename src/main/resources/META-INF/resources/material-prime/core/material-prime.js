@@ -18,13 +18,13 @@
 	     },
 	     createWidget : function(widgetConstructor, widgetVar, cfg, resource) { 
 	         if(MaterialPrime.widget[widgetConstructor]) {
-	             if(MaterialPrime.widgets[widgetVar]) {
-	            	 MaterialPrime.widgets[widgetVar].refresh(cfg);//ajax update
+	             if(PrimeFaces.widgets[widgetVar]) {
+	            	 PrimeFaces.widgets[widgetVar].refresh(cfg);//ajax update
 	             }
 	             else {
-	            	 MaterialPrime.widgets[widgetVar] = new MaterialPrime.widget[widgetConstructor](cfg);  //page init
+	            	 PrimeFaces.widgets[widgetVar] = new MaterialPrime.widget[widgetConstructor](cfg);  //page init
 	                 if(PrimeFaces.settings.legacyWidgetNamespace) {
-	                     window[widgetVar] = MaterialPrime.widgets[widgetVar]; 
+	                     window[widgetVar] = PrimeFaces.widgets[widgetVar]; 
 	                 }
 	             }
 	         }
@@ -40,7 +40,7 @@
 	             //load script and initialize widget
 	             PrimeFaces.getScript(scriptURI, function() {
 	                 setTimeout(function() {
-	                	 MaterialPrime.widgets[widgetVar] = new MaterialPrime.widget[widgetConstructor](cfg);
+	                	 PrimeFaces.widgets[widgetVar] = new MaterialPrime.widget[widgetConstructor](cfg);
 	                 }, 100);
 	             });
 	         }
