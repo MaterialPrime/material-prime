@@ -8,6 +8,7 @@
     var MaterialPrime = {
 		 widget:{},
     	 widgets:{},
+    	 toast:window.Materialize.toast,
 		 cw : function(widgetConstructor, widgetVar, cfg, resource) {
 			 MaterialPrime.createWidget(widgetConstructor, widgetVar, cfg, resource);
 	     },
