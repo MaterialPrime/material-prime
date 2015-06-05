@@ -1,10 +1,9 @@
 package org.primefaces.material.application;
 
 import org.primefaces.context.RequestContext;
-import org.primefaces.material.util.Strings;
 
 public class ToastService {
-	private static final int DURATION = 1000;
+	public static final int DEFAULT_TOAST_DURATION = 1000;
 	private static final String TOAST_SCRIPT = "MaterialPrime.toast('%s', %d, %s)";
 	private static ToastService instance;
 
@@ -42,6 +41,6 @@ public class ToastService {
 	 * @param message - could not be null
 	 */
 	public void newToast(String message){
-		this.newToast(message, DURATION);
+		this.newToast(message, DEFAULT_TOAST_DURATION);
 	}
 }
