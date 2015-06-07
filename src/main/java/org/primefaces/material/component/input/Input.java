@@ -17,11 +17,10 @@ import org.primefaces.material.MaterialPrime;
 })
 public class Input extends InputText {
 	public static final String COMPONENT_TYPE = "org.primefaces.material.component.Input";
-	static final String PRE_ADDON_FACET_NAME = "preAddon";
-	static final String POST_ADDON_FACET_NAME = "postAddon";
-
+	
 	protected enum PropertyKeys {
 		
+		icon,
 		multiLine,
 		showCounter;
 
@@ -57,6 +56,14 @@ public class Input extends InputText {
 	
 	public void setMultiLine(boolean multiLine){
 		this.getStateHelper().put(PropertyKeys.multiLine, multiLine);
+	}
+	
+	public String getIcon() {
+		return (String) getStateHelper().eval(PropertyKeys.icon, null);
+	}
+	
+	public void setIcon(String _icon) {
+		getStateHelper().put(PropertyKeys.icon, _icon);
 	}
 	
 }

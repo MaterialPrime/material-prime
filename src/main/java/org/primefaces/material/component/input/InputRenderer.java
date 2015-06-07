@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import org.primefaces.material.MaterialWidgetBuilder;
+import org.primefaces.material.util.Strings;
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.HTML;
 import org.primefaces.util.WidgetBuilder;
@@ -22,11 +23,6 @@ public class InputRenderer extends CoreRenderer{
 		encodeMarkup(context, input);
 		encodeScript(context, input);
 	}
-
-	//TODO: manage add-ons
-	private boolean hasAddons(Input input){
-		return input.getFacet(Input.PRE_ADDON_FACET_NAME) != null || input.getFacet(Input.POST_ADDON_FACET_NAME) != null;
-	}
 	
 	private void encodeMarkup(FacesContext context, Input input) throws IOException {
 		
@@ -39,6 +35,12 @@ public class InputRenderer extends CoreRenderer{
 			writer.writeAttribute("id", input.getClientId(), null);
 			writer.writeAttribute("class", "input-field", null);
 				
+				if(Strings.isNotEmpty(input.getIcon())){
+					writer.startElement("i", null);
+						writer.writeAttribute("class", input.getIcon() + " prefix", null);
+					writer.endElement("i");
+				}
+			
 				writer.startElement(elementType, null);
 					writer.writeAttribute("id", inputId, null);
 					writer.writeAttribute("class", getElementClass(input), null);
