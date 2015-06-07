@@ -21,7 +21,8 @@ public class Input extends InputText {
 	static final String POST_ADDON_FACET_NAME = "postAddon";
 
 	protected enum PropertyKeys {
-
+		
+		multiLine,
 		showCounter;
 
 		String toString;
@@ -50,4 +51,12 @@ public class Input extends InputText {
 		this.getStateHelper().put(PropertyKeys.showCounter, showCounter);
 	}
 
+	public boolean isMultiLine(){
+		return (Boolean) this.getStateHelper().eval(PropertyKeys.multiLine,false);
+	}
+	
+	public void setMultiLine(boolean multiLine){
+		this.getStateHelper().put(PropertyKeys.multiLine, multiLine);
+	}
+	
 }

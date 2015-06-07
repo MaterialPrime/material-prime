@@ -33,14 +33,15 @@ public class InputRenderer extends CoreRenderer{
 		ResponseWriter writer = context.getResponseWriter();
 		
 		String inputId = input.getClientId() + "_input";
+		String elementType = getElementType(input);
 		
 		writer.startElement("div", input);
 			writer.writeAttribute("id", input.getClientId(), null);
 			writer.writeAttribute("class", "input-field", null);
 				
-				writer.startElement("input", null);
+				writer.startElement(elementType, null);
 					writer.writeAttribute("id", inputId, null);
-					writer.writeAttribute("class", "validate", null);
+					writer.writeAttribute("class", getElementClass(input), null);
 					writer.writeAttribute("type", input.getType(), null);
 					if(input.isDisabled()){
 						writer.writeAttribute("disabled", "true", null);
@@ -51,9 +52,9 @@ public class InputRenderer extends CoreRenderer{
 					}
 					
 					writer.writeAttribute("placeholder", input.getPlaceholder(), null);
-					renderPassThruAttributes(context, input, HTML.INPUT_TEXT_ATTRS_WITHOUT_EVENTS);
+					renderPassThruAttributes(context, input, input.isMultiLine() ? HTML.TEXTAREA_ATTRS_WITHOUT_EVENTS : HTML.INPUT_TEXT_ATTRS_WITHOUT_EVENTS);
 					renderDomEvents(context, input, HTML.INPUT_TEXT_EVENTS);
-				writer.endElement("input");
+				writer.endElement(elementType);
 				
 				if(input.getLabel() != null){
 					writer.startElement("label", null);
@@ -64,6 +65,14 @@ public class InputRenderer extends CoreRenderer{
 				}
 				
 		writer.endElement("div");
+	}
+
+	private String getElementClass(Input input) {
+		return input.isMultiLine() ? "materialize-textarea" : "validate";
+	}
+
+	private String getElementType(Input input) {
+		return input.isMultiLine() ? "textarea" : "input";
 	}
 	
 	private void encodeScript(FacesContext context, Input input) throws IOException {
