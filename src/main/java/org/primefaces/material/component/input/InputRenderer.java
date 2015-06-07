@@ -7,7 +7,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import org.primefaces.material.MaterialWidgetBuilder;
-import org.primefaces.material.util.Strings;
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.HTML;
 import org.primefaces.util.WidgetBuilder;
@@ -46,6 +45,11 @@ public class InputRenderer extends CoreRenderer{
 					if(input.isDisabled()){
 						writer.writeAttribute("disabled", "true", null);
 					}
+					
+					if(input.isShowCounter() && input.getMaxlength() > 0){
+						writer.writeAttribute("length", input.getMaxlength(), null);
+					}
+					
 					writer.writeAttribute("placeholder", input.getPlaceholder(), null);
 					renderPassThruAttributes(context, input, HTML.INPUT_TEXT_ATTRS_WITHOUT_EVENTS);
 					renderDomEvents(context, input, HTML.INPUT_TEXT_EVENTS);
