@@ -67,7 +67,7 @@
 	
 	<component>
 		<component-type>org.primefaces.material.component.DatePicker</component-type>
-		<component-class>org.primefaces.material.component.datePicker.DatePicker</component-class>
+		<component-class>org.primefaces.material.component.datepicker.DatePicker</component-class>
 	</component>
 
 	<render-kit>
@@ -119,7 +119,7 @@
 		<renderer>
 			<component-family>org.primefaces.material.component</component-family>
 			<renderer-type>org.primefaces.material.component.DatePickerRenderer</renderer-type>
-			<renderer-class>org.primefaces.material.component.datePicker.DatePickerRenderer</renderer-class>
+			<renderer-class>org.primefaces.material.component.datepicker.DatePickerRenderer</renderer-class>
 		</renderer>
 	</render-kit>
 
