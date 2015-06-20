@@ -7,7 +7,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import org.primefaces.material.MaterialWidgetBuilder;
-import org.primefaces.material.util.Strings;
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.HTML;
 import org.primefaces.util.WidgetBuilder;
@@ -41,6 +40,8 @@ public class InputRenderer extends CoreRenderer{
 				
 				writer.startElement("input", null);
 					writer.writeAttribute("id", inputId, null);
+					writer.writeAttribute("name", inputId, null);
+					writer.writeAttribute("value", input.getValue(), null);
 					writer.writeAttribute("class", "validate", null);
 					writer.writeAttribute("type", input.getType(), null);
 					if(input.isDisabled()){
@@ -75,6 +76,22 @@ public class InputRenderer extends CoreRenderer{
 		wb.finish();
 		 
 	}
+	
+	@Override
+	public void decode(FacesContext context, UIComponent component) {
+		Input input = (Input) component;
 
+		if(input.isDisabled()) {
+			return;
+		}
 
+		String clientId = input.getClientId(context);
+		String submittedValue = (String) context.getExternalContext().getRequestParameterMap().get(clientId + "_input");
+
+		if(submittedValue != null) {
+			input.setSubmittedValue(submittedValue);
+		}	
+
+		decodeBehaviors(context, input);
+	}
 }
