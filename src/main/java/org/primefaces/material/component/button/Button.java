@@ -27,7 +27,7 @@ public class Button extends CommandButton{
 		size,
 		flat,
 		tooltip,
-		tooltipPos,
+		tooltipPos;
 	}
 	
 	public Button() {
