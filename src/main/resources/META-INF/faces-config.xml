@@ -64,6 +64,11 @@
 		<component-type>org.primefaces.material.component.Toast</component-type>
 		<component-class>org.primefaces.material.component.toast.Toast</component-class>
 	</component>
+	
+	<component>
+		<component-type>org.primefaces.material.component.DatePicker</component-type>
+		<component-class>org.primefaces.material.component.datePicker.DatePicker</component-class>
+	</component>
 
 	<render-kit>
 		<renderer>
@@ -110,6 +115,11 @@
 			<component-family>org.primefaces.material.component</component-family>
 			<renderer-type>org.primefaces.material.component.ToastRenderer</renderer-type>
 			<renderer-class>org.primefaces.material.component.toast.ToastRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>org.primefaces.material.component</component-family>
+			<renderer-type>org.primefaces.material.component.DatePickerRenderer</renderer-type>
+			<renderer-class>org.primefaces.material.component.datePicker.DatePickerRenderer</renderer-class>
 		</renderer>
 	</render-kit>
 

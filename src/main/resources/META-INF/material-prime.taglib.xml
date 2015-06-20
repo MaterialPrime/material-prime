@@ -607,6 +607,14 @@
 		</component>
 	</tag>
 	<tag>
+		<description><![CDATA[date Picker Component]]></description>
+		<tag-name>datePicker</tag-name>
+		<component>
+			<component-type>org.primefaces.material.component.DatePicker</component-type>
+			<renderer-type>org.primefaces.material.component.DatePickerRenderer</renderer-type>
+		</component>
+	</tag>
+	<tag>
 		<description><![CDATA[Image Component]]></description>
 		<tag-name>image</tag-name>
 		<component>
