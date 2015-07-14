@@ -43,7 +43,7 @@ public class Range extends UIInput implements ClientBehaviorHolder,Widget{
 	}
 	
 	public int getMax(){
-		return (Integer) this.getStateHelper().eval(PropertyKeys.max, 0);
+		return (Integer) this.getStateHelper().eval(PropertyKeys.max, 100);
 	}
 	
 	public void setMax(int max){

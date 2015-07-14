@@ -42,7 +42,7 @@ public static final String RENDERER_TYPE = "org.primefaces.material.component.Ch
 		
 		String inputId = range.getClientId() + "_input";
 		
-		Object value = range.getValue() != null ? range.getLocalValue() : range.getMin();
+		Object value = range.getValue() != null ? range.getValue() : range.getMin();
 		
 		writer.startElement("p", range);		
 			writer.writeAttribute("id", range.getClientId(), null);
