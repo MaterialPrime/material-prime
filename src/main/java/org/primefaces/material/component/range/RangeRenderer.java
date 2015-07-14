@@ -51,7 +51,7 @@ public static final String RENDERER_TYPE = "org.primefaces.material.component.Ch
 				writer.writeAttribute("name", inputId, null);
 				writer.writeAttribute("value", range.getValue(), null);
 				writer.writeAttribute("min", range.getMin(), "min");
-				writer.writeAttribute("name", range.getMax(), "max");
+				writer.writeAttribute("max", range.getMax(), "max");
 				if(range.isDisabled()){
 					writer.writeAttribute("disabled", range.isDisabled(), null);
 				}
