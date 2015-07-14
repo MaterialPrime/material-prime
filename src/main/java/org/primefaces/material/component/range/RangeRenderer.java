@@ -42,6 +42,8 @@ public static final String RENDERER_TYPE = "org.primefaces.material.component.Ch
 		
 		String inputId = range.getClientId() + "_input";
 		
+		Object value = range.getValue() != null ? range.getLocalValue() : range.getMin();
+		
 		writer.startElement("p", range);		
 			writer.writeAttribute("id", range.getClientId(), null);
 			writer.writeAttribute("class", "range-field", null);
@@ -49,7 +51,7 @@ public static final String RENDERER_TYPE = "org.primefaces.material.component.Ch
 			writer.startElement("input", null);
 				writer.writeAttribute("id", inputId, null);
 				writer.writeAttribute("name", inputId, null);
-				writer.writeAttribute("value", range.getValue(), null);
+				writer.writeAttribute("value", value, null);
 				writer.writeAttribute("min", range.getMin(), "min");
 				writer.writeAttribute("max", range.getMax(), "max");
 				if(range.isDisabled()){
