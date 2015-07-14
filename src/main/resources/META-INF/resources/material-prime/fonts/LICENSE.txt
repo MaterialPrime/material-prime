@@ -1,5 +1,5 @@
 https://github.com/google/material-design-icons/blob/master/LICENSE
-
+https://github.com/FezVrasta/bootstrap-material-design/blob/master/fonts/LICENSE.txt
 
 Attribution-ShareAlike 4.0 International
 
