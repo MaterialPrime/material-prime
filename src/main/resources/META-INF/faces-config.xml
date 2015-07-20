@@ -74,6 +74,11 @@
 		<component-type>org.primefaces.material.component.Range</component-type>
 		<component-class>org.primefaces.material.component.range.Range</component-class>
 	</component>
+	
+	<component>
+		<component-type>org.primefaces.material.component.FileInput</component-type>
+		<component-class>org.primefaces.material.component.fileinput.FileInput</component-class>
+	</component>
 
 	<render-kit>
 		<renderer>
@@ -130,6 +135,11 @@
 			<component-family>org.primefaces.material.component</component-family>
 			<renderer-type>org.primefaces.material.component.RangeRenderer</renderer-type>
 			<renderer-class>org.primefaces.material.component.range.RangeRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>org.primefaces.material.component</component-family>
+			<renderer-type>org.primefaces.material.component.FileInputRenderer</renderer-type>
+			<renderer-class>org.primefaces.material.component.fileinput.FileInputRenderer</renderer-class>
 		</renderer>
 	</render-kit>
 
