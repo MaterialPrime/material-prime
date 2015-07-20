@@ -35,21 +35,21 @@ public class DatePickerRenderer extends CoreRenderer{
 		String inputId = datePicker.getClientId() + "_input";
 
 		writer.startElement("div", datePicker);
-		writer.writeAttribute("id", datePicker.getClientId(), null);
-
-		writer.startElement("input", null);
-			writer.writeAttribute("id", inputId, null);
-			writer.writeAttribute("name", inputId, null);
-			writer.writeAttribute("value", value, null);
-			writer.writeAttribute("class", "datepicker picker__input", null);
-			writer.writeAttribute("type", "text", null);					
-			writer.writeAttribute("readonly", "", null);
-			writer.writeAttribute("tabindex", "-1", null);
-			writer.writeAttribute("aria-haspopup", "true", null);
-			writer.writeAttribute("aria-expanded", "false", null);
-			writer.writeAttribute("aria-readonly", "false", null);
-			writer.writeAttribute("aria-owns", inputId+"_root", null);
-		writer.endElement("input");	
+			writer.writeAttribute("id", datePicker.getClientId(), null);
+	
+			writer.startElement("input", null);
+				writer.writeAttribute("id", inputId, null);
+				writer.writeAttribute("name", inputId, null);
+				writer.writeAttribute("value", value, null);
+				writer.writeAttribute("class", "datepicker picker__input", null);
+				writer.writeAttribute("type", "text", null);					
+				writer.writeAttribute("readonly", "", null);
+				writer.writeAttribute("tabindex", "-1", null);
+				writer.writeAttribute("aria-haspopup", "true", null);
+				writer.writeAttribute("aria-expanded", "false", null);
+				writer.writeAttribute("aria-readonly", "false", null);
+				writer.writeAttribute("aria-owns", inputId+"_root", null);
+			writer.endElement("input");	
 
 		writer.endElement("div");
 	}
