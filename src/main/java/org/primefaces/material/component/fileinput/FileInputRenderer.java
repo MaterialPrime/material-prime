@@ -31,10 +31,41 @@ public class FileInputRenderer extends CoreRenderer{
 		writer.startElement("div", fileInput);
 			writer.writeAttribute("id", fileInput.getClientId(), null);
 			writer.writeAttribute("class", "file-field input-field", null);
+			
+			
 
+//			writer.startElement("div", null);
+//				writer.writeAttribute("class", "btn", null);
+//				
+//				writer.startElement("span", null);
+//					writer.write("File");					
+//				writer.endElement("span");
+//				writer.startElement("input", null);
+//					writer.writeAttribute("type", "file", null);	
+//					writer.writeAttribute("id", inputId, null);
+//					writer.writeAttribute("name", inputId, null);
+//					writer.writeAttribute("value", fileInput.getValue(), null);
+//				writer.endElement("input");	
+//				writer.startElement("div", null);
+//					writer.writeAttribute("class", "file-path-wrapper", null);
+//					
+//					writer.startElement("input", null);
+//						writer.writeAttribute("type", "text", null);	
+//						writer.writeAttribute("class", "file-path validate valid", null);
+//					writer.endElement("input");	
+//				writer.endElement("div");	
+//			
+//			writer.endElement("div");
+			
+			
+			
+			
 			writer.startElement("input", null);				
 				writer.writeAttribute("class", "file-path validate", null);
-				writer.writeAttribute("type", "text", null);			
+				writer.writeAttribute("type", "text", null);	
+				writer.writeAttribute("id", inputId, null);
+				writer.writeAttribute("name", inputId, null);
+				writer.writeAttribute("value", fileInput.getValue(), null);
 			writer.endElement("input");	
 			writer.startElement("div", null);
 				writer.writeAttribute("class", "btn", null);
@@ -42,10 +73,7 @@ public class FileInputRenderer extends CoreRenderer{
 					writer.write("File");					
 				writer.endElement("span");
 				writer.startElement("input", null);
-					writer.writeAttribute("type", "file", null);	
-					writer.writeAttribute("id", inputId, null);
-					writer.writeAttribute("name", inputId, null);
-					writer.writeAttribute("value", fileInput.getValue(), null);
+					writer.writeAttribute("type", "file", null);						
 				writer.endElement("input");	
 			writer.endElement("div");
 

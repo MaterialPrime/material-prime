@@ -5,10 +5,12 @@ MaterialPrime.widget.FileInput = PrimeFaces.widget.BaseWidget.extend({
 		var that = this;
 		
 				
-		this.input.on("onchange",function(){
+		this.input.on("change",function(){			
 			if(that.cfg.behaviors && that.cfg.behaviors.valueChange) {
+				alert('change');
 				that.cfg.behaviors.valueChange.call(that.input);
 			}
 		});
+
 	}
 });
