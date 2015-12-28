@@ -8,8 +8,6 @@ import javax.faces.context.ResponseWriter;
 
 import org.primefaces.component.commandbutton.CommandButtonRenderer;
 import org.primefaces.material.MaterialWidgetBuilder;
-import org.primefaces.material.util.Strings;
-import org.primefaces.util.HTML;
 import org.primefaces.util.WidgetBuilder;
 
 public class FixedActionButtonRenderer extends CommandButtonRenderer{
@@ -37,28 +35,43 @@ public class FixedActionButtonRenderer extends CommandButtonRenderer{
 	
 	protected void encodeMarkup(FacesContext context, FixedActionButton fab) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
-		/*
-		 * <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large red">
-      <i class="large material-icons">mode_edit</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    </ul>
-  </div>
-		 */
 		
 		writer.startElement("div", fab);
-			writer.startElement("a", fab);
+		writer.writeAttribute("class", "fixed-action-btn", null);
+			writer.startElement("a", null);
 			writer.writeAttribute("class", "btn-floating btn-large red", null);
-				writer.startElement("i", fab);
+				writer.startElement("i", null);
 					writer.writeAttribute("class", "large " + fab.getIcon(), null);
 				writer.endElement("i");
 			writer.endElement("a");
+			writer.startElement("ul", null);
+			for (UIComponent child : fab.getChildren()) {
+				renderFabItem(context,writer,(FixedActionButtonItem) child);
+			}
+			writer.endElement("ul");
 		writer.endElement("div");
+		
 	}
+	
+	private void renderFabItem(FacesContext context, ResponseWriter writer, FixedActionButtonItem child) throws IOException {
+	     writer.startElement("li", child);
+	     	writer.startElement("a", null);
+			writer.writeAttribute("class", "btn-floating blue", null);
+		     	writer.startElement("i", null);
+		     		writer.writeAttribute("class",  child.getIcon(), null);
+				writer.endElement("i");
+			writer.endElement("a");
+	     writer.endElement("li");
+	}
+
+	@Override
+	public void encodeChildren(FacesContext context, UIComponent component) throws IOException {
+        //Rendering happens on encodeEnd
+	}
+	
+	@Override
+	public boolean getRendersChildren() {
+	    return true;
+}
 	
 }

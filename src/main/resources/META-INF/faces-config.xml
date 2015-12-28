@@ -21,6 +21,11 @@
 	</application>
 	
 	<component>
+		<component-type>org.primefaces.material.component.FixedActionButtonItem</component-type>
+		<component-class>org.primefaces.material.component.fixedactionbutton.FixedActionButtonItem</component-class>
+	</component>
+	
+	<component>
 		<component-type>org.primefaces.material.component.FixedActionButton</component-type>
 		<component-class>org.primefaces.material.component.fixedactionbutton.FixedActionButton</component-class>
 	</component>

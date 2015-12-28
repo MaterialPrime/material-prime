@@ -4,8 +4,17 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd">
 
 	<namespace>http://primefaces.org/ui/material</namespace>
+	
 	<tag>
-		<description><![CDATA[Toast Component]]></description>
+		<description><![CDATA[Fixed Action Button Item]]></description>
+		<tag-name>fabItem</tag-name>
+		<component>
+			<component-type>org.primefaces.material.component.FixedActionButtonItem</component-type>
+		</component>
+	</tag>
+	
+	<tag>
+		<description><![CDATA[Fixed Action Button Component]]></description>
 		<tag-name>fab</tag-name>
 		<component>
 			<component-type>org.primefaces.material.component.FixedActionButton</component-type>
