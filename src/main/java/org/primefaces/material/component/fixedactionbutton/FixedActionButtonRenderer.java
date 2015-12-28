@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import org.primefaces.component.commandbutton.CommandButtonRenderer;
+import org.primefaces.material.MaterialColors;
 import org.primefaces.material.MaterialWidgetBuilder;
 import org.primefaces.util.WidgetBuilder;
 
@@ -56,12 +57,24 @@ public class FixedActionButtonRenderer extends CommandButtonRenderer{
 	private void renderFabItem(FacesContext context, ResponseWriter writer, FixedActionButtonItem child) throws IOException {
 	     writer.startElement("li", child);
 	     	writer.startElement("a", null);
-			writer.writeAttribute("class", "btn-floating blue", null);
+			writer.writeAttribute("class", "btn-floating " + getItemColor(child), null);
 		     	writer.startElement("i", null);
 		     		writer.writeAttribute("class",  child.getIcon(), null);
 				writer.endElement("i");
 			writer.endElement("a");
 	     writer.endElement("li");
+	}
+	
+	private String getItemColor(FixedActionButtonItem item){
+		if(item.getColor() != null){
+			if(item.getColor() instanceof MaterialColors){
+				return ((MaterialColors) item.getColor()).getColorName();
+			}else{
+				return item.getColor().toString();
+			}
+		}else{
+			return MaterialColors.random().getColorName();
+		}
 	}
 
 	@Override
