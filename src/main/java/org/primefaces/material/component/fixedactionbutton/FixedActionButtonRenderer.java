@@ -13,6 +13,7 @@ import org.primefaces.util.WidgetBuilder;
 
 public class FixedActionButtonRenderer extends CommandButtonRenderer{
 	
+	private static final String FIXED_ACTION_BTN_CLASS = "fixed-action-btn";
 	public static final String RENDERER_TYPE = "org.primefaces.material.component.FixedActionButtonRenderer";
 	
 	@Override
@@ -38,7 +39,7 @@ public class FixedActionButtonRenderer extends CommandButtonRenderer{
 		ResponseWriter writer = context.getResponseWriter();
 		
 		writer.startElement("div", fab);
-		writer.writeAttribute("class", "fixed-action-btn", null);
+		writer.writeAttribute("class", getButtonClass(context,fab), null);
 			writer.startElement("a", null);
 			writer.writeAttribute("class", "btn-floating btn-large red", null);
 				writer.startElement("i", null);
@@ -52,6 +53,14 @@ public class FixedActionButtonRenderer extends CommandButtonRenderer{
 			writer.endElement("ul");
 		writer.endElement("div");
 		
+	}
+
+	private String getButtonClass(FacesContext context, FixedActionButton fab) {
+		String toReturn = FIXED_ACTION_BTN_CLASS;
+		if(fab.isHorizontal()){
+			toReturn += " horizontal";
+		}
+		return toReturn;
 	}
 	
 	private void renderFabItem(FacesContext context, ResponseWriter writer, FixedActionButtonItem child) throws IOException {

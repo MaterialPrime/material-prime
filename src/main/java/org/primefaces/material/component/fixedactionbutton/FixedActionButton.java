@@ -28,6 +28,7 @@ public class FixedActionButton extends UIPanel implements Widget{
 	}
 	
 	protected enum PropertyKeys {
+		horizontal,
 		icon, 
 		widgetVar;
 	}
@@ -43,6 +44,14 @@ public class FixedActionButton extends UIPanel implements Widget{
 
 	public void setIcon(String icon) {
 		getStateHelper().put(PropertyKeys.icon, icon);
+	}
+	
+	public boolean isHorizontal() {
+		return (Boolean) getStateHelper().eval(PropertyKeys.horizontal, false);
+	}
+
+	public void setHorizontal(boolean horizontal) {
+		getStateHelper().put(PropertyKeys.horizontal, horizontal);
 	}
 	
 	public java.lang.String getWidgetVar() {
