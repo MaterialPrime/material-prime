@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.component.api.Widget;
 import org.primefaces.material.MaterialPrime;
+import org.primefaces.material.component.fixedactionbutton.FixedActionButtonItem.PropertyKeys;
 import org.primefaces.material.util.Strings;
 
 @ResourceDependencies({
@@ -30,7 +31,8 @@ public class FixedActionButton extends UIPanel implements Widget{
 	protected enum PropertyKeys {
 		horizontal,
 		icon, 
-		widgetVar;
+		widgetVar, 
+		color;
 	}
 	
 	@Override
@@ -52,6 +54,14 @@ public class FixedActionButton extends UIPanel implements Widget{
 
 	public void setHorizontal(boolean horizontal) {
 		getStateHelper().put(PropertyKeys.horizontal, horizontal);
+	}
+	
+	public Object getColor() {
+		return getStateHelper().eval(PropertyKeys.color, null);
+	}
+
+	public void setColor(Object color) {
+		getStateHelper().put(PropertyKeys.color, color);
 	}
 	
 	public java.lang.String getWidgetVar() {

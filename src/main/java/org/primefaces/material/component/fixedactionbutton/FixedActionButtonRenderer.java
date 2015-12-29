@@ -13,6 +13,7 @@ import org.primefaces.util.WidgetBuilder;
 
 public class FixedActionButtonRenderer extends CommandButtonRenderer{
 	
+	private static final String DEFAULT_FIXED_ACTION_COLOR = "red";
 	private static final String FIXED_ACTION_BTN_CLASS = "fixed-action-btn";
 	public static final String RENDERER_TYPE = "org.primefaces.material.component.FixedActionButtonRenderer";
 	
@@ -41,7 +42,7 @@ public class FixedActionButtonRenderer extends CommandButtonRenderer{
 		writer.startElement("div", fab);
 		writer.writeAttribute("class", getButtonClass(context,fab), null);
 			writer.startElement("a", null);
-			writer.writeAttribute("class", "btn-floating btn-large red", null);
+			writer.writeAttribute("class", "btn-floating btn-large " + getButtonColor(context,fab), null);
 				writer.startElement("i", null);
 					writer.writeAttribute("class", "large " + fab.getIcon(), null);
 				writer.endElement("i");
@@ -72,6 +73,18 @@ public class FixedActionButtonRenderer extends CommandButtonRenderer{
 				writer.endElement("i");
 			writer.endElement("a");
 	     writer.endElement("li");
+	}
+	
+	private String getButtonColor(FacesContext context, FixedActionButton fab) {
+		if(fab.getColor() != null){
+			if(fab.getColor() instanceof MaterialColors){
+				return ((MaterialColors) fab.getColor()).getColorName();
+			}else{
+				return fab.getColor().toString();
+			}
+		}else{
+			return DEFAULT_FIXED_ACTION_COLOR;
+		}
 	}
 	
 	private String getItemColor(FixedActionButtonItem item){
