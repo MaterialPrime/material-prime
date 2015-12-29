@@ -9,6 +9,7 @@ import javax.faces.event.ActionEvent;
 
 import org.primefaces.material.MaterialColors;
 import org.primefaces.material.MaterialWidgetBuilder;
+import org.primefaces.material.util.Strings;
 import org.primefaces.renderkit.CoreRenderer;
 import org.primefaces.util.WidgetBuilder;
 
@@ -55,6 +56,7 @@ public class FixedActionButtonRenderer extends CoreRenderer{
 		
 		writer.startElement("div", fab);
 		writer.writeAttribute("id", fab.getClientId(), null);
+		writer.writeAttribute("style", fab.getStyle(), null);
 		writer.writeAttribute("class", getButtonClass(context,fab), null);
 			writer.startElement("a", null);
 			writer.writeAttribute("class", "btn-floating btn-large " + getButtonColor(context,fab), null);
@@ -73,6 +75,10 @@ public class FixedActionButtonRenderer extends CoreRenderer{
 
 	private String getButtonClass(FacesContext context, FixedActionButton fab) {
 		String toReturn = FIXED_ACTION_BTN_CLASS;
+		
+		if(Strings.isNotEmpty(fab.getStyleClass())){
+			toReturn += " " + fab.getStyleClass(); 
+		}
 		
 		if(fab.isHorizontal()){
 			toReturn += " horizontal";
