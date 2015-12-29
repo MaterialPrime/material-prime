@@ -32,7 +32,8 @@ public class FixedActionButton extends UIPanel implements Widget{
 		horizontal,
 		icon, 
 		widgetVar, 
-		color;
+		color,
+		clickToToggle;
 	}
 	
 	@Override
@@ -54,6 +55,14 @@ public class FixedActionButton extends UIPanel implements Widget{
 
 	public void setHorizontal(boolean horizontal) {
 		getStateHelper().put(PropertyKeys.horizontal, horizontal);
+	}
+	
+	public boolean isClickToToggle() {
+		return (Boolean) getStateHelper().eval(PropertyKeys.clickToToggle, false);
+	}
+
+	public void setClickToToggle(boolean clickToToggle) {
+		getStateHelper().put(PropertyKeys.clickToToggle, clickToToggle);
 	}
 	
 	public Object getColor() {

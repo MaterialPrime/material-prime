@@ -58,9 +58,15 @@ public class FixedActionButtonRenderer extends CommandButtonRenderer{
 
 	private String getButtonClass(FacesContext context, FixedActionButton fab) {
 		String toReturn = FIXED_ACTION_BTN_CLASS;
+		
 		if(fab.isHorizontal()){
 			toReturn += " horizontal";
 		}
+		
+		if(fab.isClickToToggle()){
+			toReturn += " click-to-toggle";
+		}
+		
 		return toReturn;
 	}
 	
