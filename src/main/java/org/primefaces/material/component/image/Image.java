@@ -5,7 +5,6 @@ import javax.faces.application.ResourceDependency;
 
 import org.primefaces.component.graphicimage.GraphicImage;
 import org.primefaces.material.MaterialPrime;
-import org.primefaces.material.component.icon.IconRenderer;
 
 @ResourceDependencies({
 	@ResourceDependency(library = "material-prime", name = "libs/materialize.css"),
