@@ -24,7 +24,9 @@ public class FixedActionButtonItem extends UICommand implements AjaxSource{
 		partialSubmit,
 		delay, 
 		timeout,
-		partialSubmitFilter, async;
+		partialSubmitFilter, 
+		async,
+		form;
 	}
 	
 	public FixedActionButtonItem() {
@@ -173,5 +175,13 @@ public class FixedActionButtonItem extends UICommand implements AjaxSource{
 	
 	public void setAsync(boolean _async) {
 		getStateHelper().put(PropertyKeys.async, _async);
+	}
+	
+	public String getForm() {
+		return (String) getStateHelper().eval(PropertyKeys.form, null);
+	}
+
+	public void setForm(String form) {
+		getStateHelper().put(PropertyKeys.form, form);
 	}
 }
