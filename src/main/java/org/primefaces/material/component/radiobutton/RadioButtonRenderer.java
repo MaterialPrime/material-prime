@@ -82,11 +82,13 @@ public class RadioButtonRenderer extends InputRenderer {
 	
 	private String getInputClass(RadioButton radioButton) {
 		String toReturn = "";
+
+		toReturn += radioButton.getStyleClass();
 		
 		if(radioButton.isWithGap()){
 			toReturn += " with-gap ";
 		}
-		
+
 		return toReturn;
 	}
 
