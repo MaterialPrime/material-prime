@@ -26,17 +26,6 @@ public class BreadCrumbRenderer extends BaseMenuRenderer{
 	protected void encodeMarkup(FacesContext context, AbstractMenu menu) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		
-		/*
-		 * <nav>
-    <div class="nav-wrapper">
-      <div class="col s12">
-        <a href="#!" class="breadcrumb">First</a>
-        <a href="#!" class="breadcrumb">Second</a>
-        <a href="#!" class="breadcrumb">Third</a>
-      </div>
-    </div>
-  </nav>
-		 */
 		BreadCrumb breadCrumb = (BreadCrumb) menu;
 		String clientId = breadCrumb.getClientId(context);
 		int elementCount = menu.getElementsCount();
@@ -50,10 +39,10 @@ public class BreadCrumbRenderer extends BaseMenuRenderer{
         		writer.writeAttribute("class", "nav-wrapper", null);
         		writer.startElement("div", null);
 	        		writer.writeAttribute("class", "col s12", null);
-	        		for (MenuElement menuElement : menuElements) {
-	        			MenuItem item = (MenuItem) menuElement;
-						if(item.isRendered()){
-							encodeBreadCrumbItem(context, breadCrumb, item);
+	        		for (int i = 0; i < elementCount; i++) {
+	        			MenuItem item = (MenuItem) menuElements.get(i);
+	        			if(item.isRendered()){
+							encodeBreadCrumbItem(context, breadCrumb, item, i == 0 && isIconHome);
 						}
 					}
 	        	writer.endElement("div");
@@ -62,7 +51,7 @@ public class BreadCrumbRenderer extends BaseMenuRenderer{
         
 	}
 	
-	private void encodeBreadCrumbItem(FacesContext context, BreadCrumb menu, MenuItem menuitem) throws IOException {
+	private void encodeBreadCrumbItem(FacesContext context, BreadCrumb menu, MenuItem menuitem, boolean iconHome) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
         
         String title = menuitem.getTitle();
@@ -137,8 +126,15 @@ public class BreadCrumbRenderer extends BaseMenuRenderer{
                 }
             }
         }
-
-        writer.writeText(menuitem.getValue(), "value");
+        
+        if(iconHome){
+        	writer.startElement("span", null);
+        	writer.writeAttribute("class", "mdi-action-home", null);
+        	writer.endElement("span");
+        }else{
+        	writer.writeText(menuitem.getValue(), "value");
+        }
+        
 
         writer.endElement("a");
 	}
