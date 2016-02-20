@@ -13,6 +13,14 @@ import org.primefaces.renderkit.CoreRenderer;
 public class IconRenderer extends CoreRenderer {
 	public static final String RENDERER_TYPE = "org.primefaces.material.component.IconRenderer";
 	
+	public static void renderIcon(FacesContext context, String iconName) throws IOException{
+		ResponseWriter writer = context.getResponseWriter();
+		
+		writer.startElement("i", null);
+			writer.writeAttribute("class", iconName, null);
+		writer.endElement("i");
+	}
+	
 	@Override
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		Icon icon = (Icon) component;
