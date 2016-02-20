@@ -6,11 +6,53 @@
 	<namespace>http://primefaces.org/ui/material</namespace>
 	
 	<tag>
-		<description><![CDATA[Breadcrumb]]></description>
+		<description><![CDATA[Breadcrumb is a navigation component that provides contextual information about page hierarchy in the workflow.]]></description>
 		<tag-name>breadCrumb</tag-name>
 		<component>
 			<component-type>org.primefaces.material.component.BreadCrumb</component-type>
 		</component>
+		<attribute>
+			<description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>
+			<name>id</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Boolean value to specify the rendering of the component, when set to false component will not be rendered.]]></description>
+			<name>rendered</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression referring to a server side UIComponent instance in a backing bean.]]></description>
+			<name>binding</name>
+			<required>false</required>
+			<type>javax.faces.component.UIComponent</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[MenuModel instance to create menus programmatically.]]></description>
+			<name>model</name>
+			<required>false</required>
+			<type>org.primefaces.model.menu.MenuModel</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Style of main container element.]]></description>
+			<name>style</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Style class of main container.]]></description>
+			<name>styleClass</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Defines display mode of root link, valid values are "icon" default and "text".]]></description>
+			<name>homeDisplay</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
 	</tag>
 	
 	<tag>
