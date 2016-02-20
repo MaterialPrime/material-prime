@@ -43,6 +43,7 @@ If you want the last unstable version of MaterialPrime, you need to change the d
 If you want to use a jar file of MaterialPrime you need maven to build it:
 
     git clone https://github.com/MaterialPrime/material-prime.git
+    cd material-prime
     mvn package
 
 Enjoy! :)
