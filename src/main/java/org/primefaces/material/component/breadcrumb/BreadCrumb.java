@@ -17,6 +17,7 @@ import org.primefaces.material.MaterialPrime;
 public class BreadCrumb extends org.primefaces.component.breadcrumb.BreadCrumb{
 	
 	public static final String COMPONENT_TYPE = "org.primefaces.material.component.BreadCrumb";
+	public static final String DEFAULT_STYLECLASS = "nav-wrapper";
 	
 	public BreadCrumb() {
 		setRendererType(BreadCrumbRenderer.RENDERER_TYPE);

@@ -15,6 +15,7 @@ import org.primefaces.component.api.AjaxSource;
 import org.primefaces.component.api.UIOutcomeTarget;
 import org.primefaces.component.menu.AbstractMenu;
 import org.primefaces.component.menu.BaseMenuRenderer;
+import org.primefaces.material.util.Strings;
 import org.primefaces.model.menu.MenuElement;
 import org.primefaces.model.menu.MenuItem;
 import org.primefaces.util.ComponentTraversalUtils;
@@ -29,14 +30,18 @@ public class BreadCrumbRenderer extends BaseMenuRenderer{
 		BreadCrumb breadCrumb = (BreadCrumb) menu;
 		String clientId = breadCrumb.getClientId(context);
 		int elementCount = menu.getElementsCount();
+		String styleClass = getBreadCrumbStyleClass(breadCrumb);
         List<MenuElement> menuElements = (List<MenuElement>) menu.getElements();
         boolean isIconHome = breadCrumb.getHomeDisplay().equals("icon");
         
         writer.startElement("nav", null);
         	writer.writeAttribute("id", clientId, null);
         	writer.writeAttribute("role", "menu", null);
+        	if(breadCrumb.getStyle() != null) {
+                writer.writeAttribute("style", breadCrumb.getStyle(), null);
+            }
         	writer.startElement("div", null);
-        		writer.writeAttribute("class", "nav-wrapper", null);
+        		writer.writeAttribute("class", styleClass, null);
         		writer.startElement("div", null);
 	        		writer.writeAttribute("class", "col s12", null);
 	        		for (int i = 0; i < elementCount; i++) {
@@ -50,6 +55,15 @@ public class BreadCrumbRenderer extends BaseMenuRenderer{
         writer.endElement("nav");
         
 	}
+
+	private String getBreadCrumbStyleClass(BreadCrumb breadCrumb) {
+		String toReturn = BreadCrumb.DEFAULT_STYLECLASS;
+		if(Strings.isNotEmpty(breadCrumb.getStyleClass())){
+			toReturn += " " + breadCrumb.getStyleClass();
+		}
+		
+		return toReturn;
+	}
 	
 	private void encodeBreadCrumbItem(FacesContext context, BreadCrumb menu, MenuItem menuitem, boolean iconHome) throws IOException {
         ResponseWriter writer = context.getResponseWriter();
@@ -59,6 +73,7 @@ public class BreadCrumbRenderer extends BaseMenuRenderer{
 
         writer.startElement("a", null);
         writer.writeAttribute("tabindex", "-1", null);
+        writer.writeAttribute("role", "menuitem", null);
        
         if(shouldRenderId(menuitem)) {
             writer.writeAttribute("id", menuitem.getClientId(), null);
