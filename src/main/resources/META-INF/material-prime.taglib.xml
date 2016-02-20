@@ -6,6 +6,14 @@
 	<namespace>http://primefaces.org/ui/material</namespace>
 	
 	<tag>
+		<description><![CDATA[Breadcrumb]]></description>
+		<tag-name>breadCrumb</tag-name>
+		<component>
+			<component-type>org.primefaces.material.component.BreadCrumb</component-type>
+		</component>
+	</tag>
+	
+	<tag>
 		<description><![CDATA[Fixed Action Button Item]]></description>
 		<tag-name>fabItem</tag-name>
 		<component>
