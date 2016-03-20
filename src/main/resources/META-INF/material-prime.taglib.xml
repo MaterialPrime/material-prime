@@ -4,7 +4,13 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd">
 
 	<namespace>http://primefaces.org/ui/material</namespace>
-	
+	<tag>
+		<description><![CDATA[ScrollFire is a jQuery Plugin that executes callback functions depending on how far into the page you've scrolled]]></description>
+		<tag-name>scrollFire</tag-name>
+		<component>
+			<component-type>org.primefaces.material.component.ScrollFire</component-type>
+		</component>
+	</tag>
 	<tag>
 		<description><![CDATA[Breadcrumb is a navigation component that provides contextual information about page hierarchy in the workflow.]]></description>
 		<tag-name>breadCrumb</tag-name>
