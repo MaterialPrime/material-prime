@@ -21,6 +21,15 @@
             </roles>
             <timezone>+1</timezone>
         </developer>
+         <developer>
+            <id>luca.cardinali</id>
+            <name>Luca Cardinali</name>
+            <email>lucacard87@gmail.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
     </developers>
 	<dependencies>
 		<!-- PrimeFaces -->
