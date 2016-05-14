@@ -61,6 +61,7 @@ public class ButtonRenderer extends CommandButtonRenderer{
 	        	writer.startElement("i", null);
 					writer.writeAttribute("id", button.getClientId()+"_icon", null);
 					writer.writeAttribute("class", getIconCass(button), null);
+					writer.write(button.getIcon());
 				writer.endElement("i");
 	        }
 	        
@@ -72,7 +73,7 @@ public class ButtonRenderer extends CommandButtonRenderer{
 	}
 
 	private String getIconCass(Button button) {
-		String cssClass = button.getIcon();
+		String cssClass = "material-icons";
 		if(button.getValue() != null){
 			cssClass += " " + button.getIconPos();
 		}
