@@ -5,6 +5,5 @@ jdk:
   - oraclejdk7
   - openjdk6
 
-script:
-  - mvn test      
+script:      
   - mvn package
