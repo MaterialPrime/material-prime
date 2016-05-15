@@ -2,7 +2,7 @@
 
 **MaterialPrime** is new JSF project built with [PrimeFaces](http://www.primefaces.org/). It helps you create JSF applications that follows the **Google** [Material Design](http://www.google.com/design/spec/material-design/introduction.html) guidelines. It's based on [MaterializeCSS](http://materializecss.com/) library.
 
-**The work on MaterialPrime is funded by the community. Just check the project page on [Patreon](https://www.patreon.com/material_prime/).**
+**The work on MaterialPrime is funded by the community. Just check the project page on [Patreon](https://www.patreon.com/material_prime).**
 
 If you want to contribute to the project, just fork our [GitHub repository](https://github.com/MaterialPrime/), or simply contact me at [francesco.strazzullo86@gmail.com](mailto:francesco.strazzullo86@gmail.com)! :D
 
