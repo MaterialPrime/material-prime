@@ -23,7 +23,7 @@ Now just add the dependency to the pom.xml file.
     <dependency>
         <groupId>com.github.MaterialPrime</groupId>
         <artifactId>material-prime</artifactId>
-        <version>v0.0.1</version>
+        <version>v0.0.2</version>
     </dependency>
 
 If you're using Gradle just follow the guide [here](https://jitpack.io/#MaterialPrime/material-prime).
