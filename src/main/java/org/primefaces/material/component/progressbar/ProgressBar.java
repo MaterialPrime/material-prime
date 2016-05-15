@@ -73,7 +73,7 @@ public class ProgressBar extends UIComponentBase implements Widget{
 		return (Integer) getStateHelper().eval(PropertyKeys.value, null);
 	}
 	
-	public void setValue(int value) {
+	public void setValue(Integer value) {
 		getStateHelper().put(PropertyKeys.value, value);
 	}
 }
