@@ -6,4 +6,5 @@ jdk:
   - openjdk6
 
 script:
+  - mvn test      
   - mvn package
