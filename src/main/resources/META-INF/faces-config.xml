@@ -21,6 +21,11 @@
 	</application>
 	
 	<component>
+		<component-type>org.primefaces.material.component.ProgressBar</component-type>
+		<component-class>org.primefaces.material.component.progressbar.ProgressBar</component-class>
+	</component>
+	
+	<component>
 		<component-type>org.primefaces.material.component.ScrollFire</component-type>
 		<component-class>org.primefaces.material.component.scrollfire.ScrollFire</component-class>
 	</component>
@@ -101,6 +106,11 @@
 	</component>
 
 	<render-kit>
+		<renderer>
+			<component-family>org.primefaces.material.component</component-family>
+			<renderer-type>org.primefaces.material.component.ProgressBarRenderer</renderer-type>
+			<renderer-class>org.primefaces.material.component.progressbar.ProgressBarRenderer</renderer-class>
+		</renderer>
 		<renderer>
 			<component-family>org.primefaces.material.component</component-family>
 			<renderer-type>org.primefaces.material.component.ScrollFireRenderer</renderer-type>

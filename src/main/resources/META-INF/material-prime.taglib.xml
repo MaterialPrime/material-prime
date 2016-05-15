@@ -12,6 +12,13 @@
 		</component>
 	</tag>
 	<tag>
+		<description><![CDATA[ProgressBar Component]]></description>
+		<tag-name>progressBar</tag-name>
+		<component>
+			<component-type>org.primefaces.material.component.ProgressBar</component-type>
+		</component>
+	</tag>
+	<tag>
 		<description><![CDATA[Breadcrumb is a navigation component that provides contextual information about page hierarchy in the workflow.]]></description>
 		<tag-name>breadCrumb</tag-name>
 		<component>
