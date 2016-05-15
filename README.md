@@ -1,4 +1,4 @@
-# MaterialPrime: Material design with PrimeFaces.
+# MaterialPrime: Material design with PrimeFaces. [![Build Status](https://travis-ci.org/MaterialPrime/material-prime.svg?branch=develop)](https://travis-ci.org/MaterialPrime/material-prime)
 
 **MaterialPrime** is new JSF project built with [PrimeFaces](http://www.primefaces.org/). It helps you create JSF applications that follows the **Google** [Material Design](http://www.google.com/design/spec/material-design/introduction.html) guidelines. It's based on [MaterializeCSS](http://materializecss.com/) library.
 
