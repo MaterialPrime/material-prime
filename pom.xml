@@ -5,12 +5,6 @@
 	<artifactId>material-prime</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<name>material-prime</name>
-	<distributionManagement>
-		<repository>
-			<id>ftp-repository</id>
-			<url>ftp://ftp.francescostrazzullo.info//www.francescostrazzullo.info/blog/maven</url>
-		</repository>
-	</distributionManagement>
 	<developers>
         <developer>
             <id>francesco.strazzullo</id>
