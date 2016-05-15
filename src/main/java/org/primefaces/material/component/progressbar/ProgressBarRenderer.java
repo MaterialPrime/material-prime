@@ -27,14 +27,14 @@ public class ProgressBarRenderer extends CoreRenderer{
 	private void encodeMarkup(FacesContext context, ProgressBar progressBar) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		
-		boolean indeterminate = progressBar.getValue() != null && progressBar.getValue() > 0;
+		boolean determinate = progressBar.getValue() != null && progressBar.getValue() > 0;
 		
 		writer.startElement("div", progressBar);		
 			writer.writeAttribute("id", progressBar.getClientId(), null);
 			writer.writeAttribute("class", PROGRESS_BAR_CLASS, null);
 			writer.startElement("div", null);
-				writer.writeAttribute("class", getProgressBarClass(indeterminate), null);
-				if(!indeterminate){
+				writer.writeAttribute("class", getProgressBarClass(determinate), null);
+				if(determinate){
 					writer.writeAttribute("style", getProgressBarWidth(progressBar), null);
 				}
 			writer.endElement("div");
@@ -42,11 +42,11 @@ public class ProgressBarRenderer extends CoreRenderer{
 	}
 
 	private String getProgressBarWidth(ProgressBar progressBar) {
-		return String.format("width: %1$d%;",progressBar.getValue());
+		return "width: " + progressBar.getValue() + "%;";
 	}
 
-	private String getProgressBarClass(boolean indeterminate) {
-		return indeterminate ? "indeterminate" : "determinate";
+	private String getProgressBarClass(boolean determinate) {
+		return determinate ? "determinate" : "indeterminate";
 	}
 	
 	private void encodeScript(FacesContext context, ProgressBar progressBar) throws IOException {
