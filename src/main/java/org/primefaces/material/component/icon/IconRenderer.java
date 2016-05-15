@@ -17,7 +17,7 @@ public class IconRenderer extends CoreRenderer {
 		ResponseWriter writer = context.getResponseWriter();
 		
 		writer.startElement("i", null);
-			writer.writeAttribute("class", iconName, null);
+			writer.writeAttribute("class", "material-icons", null);
 		writer.endElement("i");
 	}
 	
@@ -34,11 +34,12 @@ public class IconRenderer extends CoreRenderer {
 		writer.startElement("i", icon);
 			writer.writeAttribute("id", icon.getClientId(), null);
 			writer.writeAttribute("class", getIconClass(icon), null);
+			writer.write(icon.getName());
 		writer.endElement("i");
 	}
 
 	private String getIconClass(Icon icon) {
-		String toReturn = icon.getName();
+		String toReturn = "material-icons";
 		
 		String size = Strings.isNotEmpty(icon.getSize()) && Arrays.asList(Icon.VALID_SIZE_VALUES).contains(icon.getSize()) ? icon.getSize() : Icon.VALID_SIZE_VALUES[0];
 		
