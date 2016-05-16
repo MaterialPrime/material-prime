@@ -61,7 +61,8 @@ public class FixedActionButtonRenderer extends CoreRenderer{
 			writer.startElement("a", null);
 			writer.writeAttribute("class", "btn-floating btn-large " + getButtonColor(context,fab), null);
 				writer.startElement("i", null);
-					writer.writeAttribute("class", "large " + fab.getIcon(), null);
+					writer.writeAttribute("class", "large material-icons", null);
+					writer.write(fab.getIcon());
 				writer.endElement("i");
 			writer.endElement("a");
 			writer.startElement("ul", null);
@@ -102,7 +103,8 @@ public class FixedActionButtonRenderer extends CoreRenderer{
 	     	writer.writeAttribute("onclick", onclick, "onclick");
 			writer.writeAttribute("class", "btn-floating " + getItemColor(child), null);
 		     	writer.startElement("i", null);
-		     		writer.writeAttribute("class",  child.getIcon(), null);
+		     		writer.writeAttribute("class",  "material-icons", null);
+		     		writer.write(child.getIcon());
 				writer.endElement("i");
 			writer.endElement("a");
 	     writer.endElement("li");
