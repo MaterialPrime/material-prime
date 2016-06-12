@@ -35,7 +35,7 @@ To use MaterialPrime in a JSF page, just add the namespace on the top of the pag
 
 If you're using Gradle just follow the guide [here](https://jitpack.io/#MaterialPrime/material-prime).
 
-    You can also download the last stable [jar file](https://jitpack.io/com/github/MaterialPrime/material-prime/v0.0.2/material-prime-v0.0.2.jar).
+You can also download the last stable [jar file](https://jitpack.io/com/github/MaterialPrime/material-prime/v0.0.2/material-prime-v0.0.2.jar).
 
 ### Bleeding Edge
 
