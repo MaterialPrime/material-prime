@@ -4,3 +4,4 @@ Bundle-ManifestVersion: 2
 Bundle-Name: primefaces.material
 Bundle-Description: MaterialPrime
 Bundle-SymbolicName: org.primefaces.material
+Class-Path: 
