@@ -27,10 +27,9 @@ public class MaterialWidgetBuilder extends WidgetBuilder {
         super(context);
     }
 
-    protected WidgetBuilder init(String widgetClass, String widgetVar, String id, String resourcePath, boolean endFunction) throws IOException {
-    	this.resourcePath = resourcePath;
+    protected WidgetBuilder init(String widgetClass, String widgetVar, String id, boolean endFunction) throws IOException {
     	this.endFunction = endFunction;
-    	
+
         context.getResponseWriter().write("MaterialPrime.cw(\"");
         context.getResponseWriter().write(widgetClass);
         context.getResponseWriter().write("\",\"");
