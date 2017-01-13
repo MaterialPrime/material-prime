@@ -12,7 +12,7 @@ import org.primefaces.material.component.fixedactionbutton.FixedActionButtonItem
 import org.primefaces.material.util.Strings;
 
 @ResourceDependencies({ @ResourceDependency(library = "primefaces", name = "jquery/jquery.js"),
-		@ResourceDependency(library = "primefaces", name = "primefaces.js"),
+		@ResourceDependency(library = "primefaces", name = "core.js"),
 		@ResourceDependency(library = "material-prime", name = "libs/materialize.css"),
 		@ResourceDependency(library = "material-prime", name = "libs/materialize.js"),
 		@ResourceDependency(library = "material-prime", name = "core/material-prime.js"),
