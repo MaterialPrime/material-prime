@@ -66,7 +66,9 @@ public class FixedActionButtonRenderer extends CoreRenderer{
 			writer.endElement("a");
 			writer.startElement("ul", null);
 			for (UIComponent child : fab.getChildren()) {
-				renderFabItem(context,writer,(FixedActionButtonItem) child);
+				if (child.isRendered()) {
+					renderFabItem(context,writer,(FixedActionButtonItem) child);
+				}
 			}
 			writer.endElement("ul");
 		writer.endElement("div");
